@@ -18,7 +18,7 @@ int main( void )
     scene.load();
 
     Buffer rendering_buffer{ x_resolution, y_resolution };
-    glm::vec3 background_color{ 0.0f, 0.0f, 0.0f };
+    glm::vec3 background_color{ 10.0f, 0.0f, 0.0f };
 
     // Set up the renderer.
     RayTracer rt( camera,

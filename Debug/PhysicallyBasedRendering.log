@@ -1,0 +1,13 @@
+﻿  buffer.cpp
+  camera.cpp
+  main.cpp
+  onb.cpp
+  orthographic_camera.cpp
+  primitive.cpp
+  ray.cpp
+  raytracer.cpp
+d:\ufpb\2018-2\tópicos especiais em computação\pbr\raytracer.cpp(34): warning C4244: '=': conversão de 'std::numeric_limits<double>::_Ty' para 'float', possível perda de dados
+  scene.cpp
+  sphere.cpp
+  Gerando Código...
+glew32.dll : fatal error LNK1107: arquivo inválido ou corrompido: não é possível ler em 0x2D8
