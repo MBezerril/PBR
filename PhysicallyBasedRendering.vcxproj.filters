@@ -13,78 +13,90 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
+    <Filter Include="Header Files\Cameras">
+      <UniqueIdentifier>{dedf1ed6-2ae9-4c6a-a6a3-2d6bcb88e723}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Rays">
+      <UniqueIdentifier>{60d007f3-3401-447c-b2d5-50816be2e74b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\World">
+      <UniqueIdentifier>{d6781e9a-5559-4942-a31c-311663e0b44c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data Structures">
+      <UniqueIdentifier>{9e47a335-2722-4a2a-9793-9cd8b3ed4f1b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="buffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="onb.cpp">
+    <ClCompile Include="Data Structures\onb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="orthographic_camera.cpp">
+    <ClCompile Include="Cameras\buffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="primitive.cpp">
+    <ClCompile Include="Cameras\camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ray.cpp">
+    <ClCompile Include="Cameras\orthographic_camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="raytracer.cpp">
+    <ClCompile Include="Cameras\perspective_camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="scene.cpp">
+    <ClCompile Include="Rays\ray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sphere.cpp">
+    <ClCompile Include="Rays\raytracer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="perspective_camera.cpp">
+    <ClCompile Include="World\sphere.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="World\scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="World\primitive.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="buffer.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Cameras\buffer.h">
+      <Filter>Header Files\Cameras</Filter>
     </ClInclude>
-    <ClInclude Include="camera.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Cameras\camera.h">
+      <Filter>Header Files\Cameras</Filter>
     </ClInclude>
-    <ClInclude Include="intersection_record.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Cameras\orthographic_camera.h">
+      <Filter>Header Files\Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="Cameras\perspective_camera.h">
+      <Filter>Header Files\Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="Data Structures\onb.h">
+      <Filter>Header Files\Data Structures</Filter>
     </ClInclude>
     <ClInclude Include="main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="onb.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Rays\intersection_record.h">
+      <Filter>Header Files\Rays</Filter>
     </ClInclude>
-    <ClInclude Include="orthographic_camera.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Rays\ray.h">
+      <Filter>Header Files\Rays</Filter>
     </ClInclude>
-    <ClInclude Include="primitive.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Rays\raytracer.h">
+      <Filter>Header Files\Rays</Filter>
     </ClInclude>
-    <ClInclude Include="ray.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="World\primitive.h">
+      <Filter>Header Files\World</Filter>
     </ClInclude>
-    <ClInclude Include="raytracer.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="World\scene.h">
+      <Filter>Header Files\World</Filter>
     </ClInclude>
-    <ClInclude Include="scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sphere.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="perspective_camera.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="World\sphere.h">
+      <Filter>Header Files\World</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -110,31 +110,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="buffer.cpp" />
-    <ClCompile Include="camera.cpp" />
+    <ClCompile Include="Cameras\buffer.cpp" />
+    <ClCompile Include="Cameras\camera.cpp" />
+    <ClCompile Include="Cameras\orthographic_camera.cpp" />
+    <ClCompile Include="Cameras\perspective_camera.cpp" />
+    <ClCompile Include="Data Structures\onb.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="onb.cpp" />
-    <ClCompile Include="orthographic_camera.cpp" />
-    <ClCompile Include="perspective_camera.cpp" />
-    <ClCompile Include="primitive.cpp" />
-    <ClCompile Include="ray.cpp" />
-    <ClCompile Include="raytracer.cpp" />
-    <ClCompile Include="scene.cpp" />
-    <ClCompile Include="sphere.cpp" />
+    <ClCompile Include="Rays\ray.cpp" />
+    <ClCompile Include="Rays\raytracer.cpp" />
+    <ClCompile Include="World\primitive.cpp" />
+    <ClCompile Include="World\scene.cpp" />
+    <ClCompile Include="World\sphere.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="buffer.h" />
-    <ClInclude Include="camera.h" />
-    <ClInclude Include="intersection_record.h" />
+    <ClInclude Include="Cameras\buffer.h" />
+    <ClInclude Include="Cameras\camera.h" />
+    <ClInclude Include="Cameras\orthographic_camera.h" />
+    <ClInclude Include="Cameras\perspective_camera.h" />
+    <ClInclude Include="Data Structures\onb.h" />
     <ClInclude Include="main.h" />
-    <ClInclude Include="onb.h" />
-    <ClInclude Include="orthographic_camera.h" />
-    <ClInclude Include="perspective_camera.h" />
-    <ClInclude Include="primitive.h" />
-    <ClInclude Include="ray.h" />
-    <ClInclude Include="raytracer.h" />
-    <ClInclude Include="scene.h" />
-    <ClInclude Include="sphere.h" />
+    <ClInclude Include="Rays\intersection_record.h" />
+    <ClInclude Include="Rays\ray.h" />
+    <ClInclude Include="Rays\raytracer.h" />
+    <ClInclude Include="World\primitive.h" />
+    <ClInclude Include="World\scene.h" />
+    <ClInclude Include="World\sphere.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
