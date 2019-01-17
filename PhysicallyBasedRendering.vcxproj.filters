@@ -13,53 +13,64 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
-
     <Filter Include="Header Files\Cameras">
       <UniqueIdentifier>{dedf1ed6-2ae9-4c6a-a6a3-2d6bcb88e723}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Rays">
       <UniqueIdentifier>{60d007f3-3401-447c-b2d5-50816be2e74b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Data Structures">
+      <UniqueIdentifier>{9e47a335-2722-4a2a-9793-9cd8b3ed4f1b}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Header Files\World">
       <UniqueIdentifier>{d6781e9a-5559-4942-a31c-311663e0b44c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Data Structures">
-      <UniqueIdentifier>{9e47a335-2722-4a2a-9793-9cd8b3ed4f1b}</UniqueIdentifier>
+    <Filter Include="Source Files\Cameras">
+      <UniqueIdentifier>{efd8d482-90d5-49f3-a889-3fcd02011345}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data Structures">
+      <UniqueIdentifier>{53fca4bd-6f04-4627-8155-c5175238ce59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Rays">
+      <UniqueIdentifier>{d7411197-715f-43d6-bbe1-212299cad1cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\World">
+      <UniqueIdentifier>{120ddda9-2e04-488c-941d-1ddd1ad36b9b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Data Structures\onb.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Cameras\buffer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Cameras</Filter>
     </ClCompile>
     <ClCompile Include="Cameras\camera.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Cameras</Filter>
     </ClCompile>
     <ClCompile Include="Cameras\orthographic_camera.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Cameras</Filter>
     </ClCompile>
     <ClCompile Include="Cameras\perspective_camera.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="Data Structures\onb.cpp">
+      <Filter>Source Files\Data Structures</Filter>
     </ClCompile>
     <ClCompile Include="Rays\ray.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Rays</Filter>
     </ClCompile>
     <ClCompile Include="Rays\raytracer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="World\sphere.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="World\scene.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Rays</Filter>
     </ClCompile>
     <ClCompile Include="World\primitive.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\World</Filter>
+    </ClCompile>
+    <ClCompile Include="World\scene.cpp">
+      <Filter>Source Files\World</Filter>
+    </ClCompile>
+    <ClCompile Include="World\sphere.cpp">
+      <Filter>Source Files\World</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
