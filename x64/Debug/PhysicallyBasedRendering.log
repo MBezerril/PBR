@@ -1,11 +1,21 @@
 ﻿  buffer.cpp
   camera.cpp
+<<<<<<< HEAD
   main.cpp
   onb.cpp
   orthographic_camera.cpp
   primitive.cpp
   ray.cpp
   raytracer.cpp
+=======
+  orthographic_camera.cpp
+  perspective_camera.cpp
+  onb.cpp
+  main.cpp
+  ray.cpp
+  raytracer.cpp
+  primitive.cpp
+>>>>>>> cameras
   scene.cpp
   sphere.cpp
   Gerando Código...

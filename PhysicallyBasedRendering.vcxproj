@@ -110,6 +110,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="buffer.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="main.cpp" />
@@ -134,6 +135,33 @@
     <ClInclude Include="raytracer.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="sphere.h" />
+=======
+    <ClCompile Include="Cameras\buffer.cpp" />
+    <ClCompile Include="Cameras\camera.cpp" />
+    <ClCompile Include="Cameras\orthographic_camera.cpp" />
+    <ClCompile Include="Cameras\perspective_camera.cpp" />
+    <ClCompile Include="Data Structures\onb.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Rays\ray.cpp" />
+    <ClCompile Include="Rays\raytracer.cpp" />
+    <ClCompile Include="World\primitive.cpp" />
+    <ClCompile Include="World\scene.cpp" />
+    <ClCompile Include="World\sphere.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cameras\buffer.h" />
+    <ClInclude Include="Cameras\camera.h" />
+    <ClInclude Include="Cameras\orthographic_camera.h" />
+    <ClInclude Include="Cameras\perspective_camera.h" />
+    <ClInclude Include="Data Structures\onb.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="Rays\intersection_record.h" />
+    <ClInclude Include="Rays\ray.h" />
+    <ClInclude Include="Rays\raytracer.h" />
+    <ClInclude Include="World\primitive.h" />
+    <ClInclude Include="World\scene.h" />
+    <ClInclude Include="World\sphere.h" />
+>>>>>>> cameras
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
