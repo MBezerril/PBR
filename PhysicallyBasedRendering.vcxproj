@@ -115,6 +115,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="onb.cpp" />
     <ClCompile Include="orthographic_camera.cpp" />
+    <ClCompile Include="perspective_camera.cpp" />
     <ClCompile Include="primitive.cpp" />
     <ClCompile Include="ray.cpp" />
     <ClCompile Include="raytracer.cpp" />
@@ -128,6 +129,7 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="onb.h" />
     <ClInclude Include="orthographic_camera.h" />
+    <ClInclude Include="perspective_camera.h" />
     <ClInclude Include="primitive.h" />
     <ClInclude Include="ray.h" />
     <ClInclude Include="raytracer.h" />

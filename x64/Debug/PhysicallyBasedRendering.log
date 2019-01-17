@@ -3,6 +3,7 @@
   main.cpp
   onb.cpp
   orthographic_camera.cpp
+  perspective_camera.cpp
   primitive.cpp
   ray.cpp
   raytracer.cpp
