@@ -121,6 +121,7 @@
     <ClCompile Include="World\primitive.cpp" />
     <ClCompile Include="World\scene.cpp" />
     <ClCompile Include="World\sphere.cpp" />
+    <ClCompile Include="World\triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cameras\buffer.h" />
@@ -135,6 +136,7 @@
     <ClInclude Include="World\primitive.h" />
     <ClInclude Include="World\scene.h" />
     <ClInclude Include="World\sphere.h" />
+    <ClInclude Include="World\triangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

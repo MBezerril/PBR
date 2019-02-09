@@ -72,6 +72,9 @@
     <ClCompile Include="World\sphere.cpp">
       <Filter>Source Files\World</Filter>
     </ClCompile>
+    <ClCompile Include="World\triangle.cpp">
+      <Filter>Source Files\World</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cameras\buffer.h">
@@ -108,6 +111,9 @@
       <Filter>Header Files\World</Filter>
     </ClInclude>
     <ClInclude Include="World\sphere.h">
+      <Filter>Header Files\World</Filter>
+    </ClInclude>
+    <ClInclude Include="World\triangle.h">
       <Filter>Header Files\World</Filter>
     </ClInclude>
   </ItemGroup>
