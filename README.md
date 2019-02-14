@@ -7,7 +7,7 @@ The first try didn't go very well, but was a point position mistake.
 
 Output image rendered can be found in the *Output* folder with the "*Tringle.jpg*
 
-# ------------------------------------- The Original Readme ------------------------------
+
 # RT-Template
 
 A very simple C++11 template code for the development of ray tracers.
