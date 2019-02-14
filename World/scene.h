@@ -9,6 +9,7 @@
 
 #include "primitive.h"
 #include "sphere.h" 
+#include "triangle.h" 
 
 class Scene
 {

@@ -10,32 +10,6 @@
   scene.cpp
   sphere.cpp
   triangle.cpp
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(4): error C4430: faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(4): error C2065: 'ray': identificador não declarado
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(4): error C2228: esquerda de '.origin_' deve possuir class/struct/union
-  d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(4): note: tipo é 'unknown-type'
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(4): error C2466: não é possível alocar uma matriz de dimensão constante 0
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(4): error C2059: erro de sintaxe: ')'
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(6): error C4430: faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(6): error C2065: 'pvec': identificador não declarado
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(7): error C2059: erro de sintaxe: 'if'
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(11): error C4430: faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(11): error C2065: 'edge1': identificador não declarado
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(14): error C4430: faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(14): error C2065: 'dir': identificador não declarado
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(16): error C2059: erro de sintaxe: 'if'
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(19): error C4430: faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(19): error C2065: 'edge2': identificador não declarado
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(21): error C4430: faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(21): error C2065: 'det': identificador não declarado
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(23): error C4430: faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(23): error C2374: 't': redefinição; várias inicializações
-  d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(19): note: consulte a declaração de 't'
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(24): error C4430: faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(24): error C2374: 'u': redefinição; várias inicializações
-  d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(6): note: consulte a declaração de 'u'
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(25): error C4430: faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(25): error C2374: 'v': redefinição; várias inicializações
-  d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(14): note: consulte a declaração de 'v'
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(26): fatal error C1019: #else inesperado
+d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(18): warning C4067: tokens inesperados após diretiva de pré-processador - esperado um newline
   Gerando Código...
+  PhysicallyBasedRendering.vcxproj -> D:\UFPB\2018-2\Tópicos Especiais em Computação\PBR\x64\Debug\PhysicallyBasedRendering.exe
