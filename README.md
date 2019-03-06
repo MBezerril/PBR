@@ -7,7 +7,9 @@ The pinhole works on a simples principle: the rays are now traced from the pin (
 ## The assimp:
 Assimp is a opensource model loader that can load most of the 3D files formats, write in C++ and easy to use. 
 There is some data structures to handle 3D model objects, but if you want to use your own 3D models structs, it can be easily converted reading the points from the Assimp struct and save in you own. (we made it :D)
+
 Official site: http://www.assimp.org/index.php
+
 GitHub repository: https://github.com/assimp/assimp
 
 # Changes 1
