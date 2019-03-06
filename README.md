@@ -1,4 +1,14 @@
-# Changes
+# Changes 2
+## Inserted the pinhole camera and the assimp.
+
+The perspective camera (pinhole):
+The pinhole works on a simples principle: the rays are now traced from the pin (a point created at some pre defined distance on camera creation) in direction of each pixel in a matrix created in the camera creation. This simple modification create the sens of perspective.
+
+## The assimp:
+Assimp is a opensource model loader that can load most of the 3D files formats, write in C++ and easy to use. 
+There is some data structures to handle 3D model objects, but if you want to use your own 3D models structs, it can be easily converted reading the points from the Assimp struct and save in you own. (we made it :D)
+
+# Changes 1
 Created and tested the triangle algorithm and was used the *Fast, Minimum Storage Ray/Triangle Intersection (Möller, T.; Trumbore, B.)*
 
 The first try didn't go very well, but was a point position mistake.
