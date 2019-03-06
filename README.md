@@ -1,3 +1,13 @@
+# Changes
+Created and tested the triangle algorithm and was used the *Fast, Minimum Storage Ray/Triangle Intersection (Möller, T.; Trumbore, B.)*
+
+The first try didn't go very well, but was a point position mistake.
+
+*The speed and memory tests wasn't make yet, we still need the second triangle intersection algotihm to make the comparisions*
+
+Output image rendered can be found in the *Output* folder with the "*Tringle.jpg*
+
+
 # RT-Template
 
 A very simple C++11 template code for the development of ray tracers.
