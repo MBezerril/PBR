@@ -1,6 +1,6 @@
 # Changes 2
-## Inserted the pinhole camera and the assimp.
 
+## Inserted the pinhole camera and the assimp:
 The perspective camera (pinhole):
 The pinhole works on a simples principle: the rays are now traced from the pin (a point created at some pre defined distance on camera creation) in direction of each pixel in a matrix created in the camera creation. This simple modification create the sens of perspective.
 
