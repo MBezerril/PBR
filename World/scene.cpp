@@ -24,10 +24,49 @@ bool Scene::intersect(const Ray &ray,
 }
 
 void Scene::load(void) {
+	Assimp::Importer importer;
+	importer.SetPropertyInteger(AI_CONFIG_PP_RVC_FLAGS, aiComponent_BONEWEIGHTS | 
+		aiComponent_CAMERAS |
+		aiComponent_LIGHTS);
+	const aiScene *scene = importer.ReadFile("objts/Lowpoly_tree_sample.obj",
+		aiProcess_CalcTangentSpace |
+		aiProcess_Triangulate |
+		aiProcess_RemoveComponent |
+		aiProcess_JoinIdenticalVertices |
+		aiProcess_SortByPType);
+
+	if (scene==nullptr || !scene->HasMeshes()) std::exit(-10);
+
+	float r, g, b;
+	for (unsigned int j = 0; j < scene->mNumMeshes; j++) {
+		aiMesh *mesh = scene->mMeshes[j];
+
+		for (unsigned int i = 0; i < mesh->mNumFaces; i++) {
+			aiFace face = mesh->mFaces[i];
+
+			aiVector3D vert1 = mesh->mVertices[face.mIndices[0]];
+			aiVector3D vert2 = mesh->mVertices[face.mIndices[1]];
+			aiVector3D vert3 = mesh->mVertices[face.mIndices[2]];
+
+			glm::vec3 p1 = glm::vec3{ vert1.x, vert1.y, vert1.z };
+			glm::vec3 p2 = glm::vec3{ vert2.x, vert2.y, vert2.z };
+			glm::vec3 p3 = glm::vec3{ vert3.x, vert3.y, vert3.z };
+
+			r = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
+			b = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
+			g = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
+
+			primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle(p1, p2, p3)));
+		}
+	}
+
+
+	//This lines import 4 spheres and one triangle to test the program
+	/*
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, 0.0f,  0.0f }, 0.2f }));
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{ -0.5f, 0.0f, -1.0f }, 0.2f }));
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f,-0.5f, -2.0f }, 0.2f }));
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, 0.5f, -3.0f }, 0.2f }));
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle{ glm::vec3{ 0.0f, 0.0f,  0.0f }, glm::vec3{ 0.0f, 1.0f, 0.0f }, glm::vec3{ 1.0f, 0.0f, 0.0f } }));
+	*/
 }
-

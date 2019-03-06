@@ -1,13 +1,6 @@
-﻿  buffer.cpp
-  camera.cpp
-  main.cpp
-  onb.cpp
-  orthographic_camera.cpp
-  primitive.cpp
-  ray.cpp
-  raytracer.cpp
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\raytracer.cpp(34): warning C4244: '=': conversão de 'std::numeric_limits<double>::_Ty' para 'float', possível perda de dados
-  scene.cpp
-  sphere.cpp
-  Gerando Código...
-glew32.dll : fatal error LNK1107: arquivo inválido ou corrompido: não é possível ler em 0x2D8
+﻿scene.obj : error LNK2019: símbolo externo indefinido "public: __thiscall Assimp::Importer::Importer(void)" (??0Importer@Assimp@@QAE@XZ) referenciado na função "public: void __thiscall Scene::load(void)" (?load@Scene@@QAEXXZ)
+scene.obj : error LNK2019: símbolo externo indefinido "public: __thiscall Assimp::Importer::~Importer(void)" (??1Importer@Assimp@@QAE@XZ) referenciado na função "public: void __thiscall Scene::load(void)" (?load@Scene@@QAEXXZ)
+scene.obj : error LNK2019: símbolo externo indefinido "public: bool __thiscall Assimp::Importer::SetPropertyInteger(char const *,int)" (?SetPropertyInteger@Importer@Assimp@@QAE_NPBDH@Z) referenciado na função "public: void __thiscall Scene::load(void)" (?load@Scene@@QAEXXZ)
+scene.obj : error LNK2019: símbolo externo indefinido "public: struct aiScene const * __thiscall Assimp::Importer::ReadFile(char const *,unsigned int)" (?ReadFile@Importer@Assimp@@QAEPBUaiScene@@PBDI@Z) referenciado na função "public: void __thiscall Scene::load(void)" (?load@Scene@@QAEXXZ)
+MSVCRTD.lib(exe_winmain.obj) : error LNK2019: símbolo externo indefinido _WinMain@16 referenciado na função "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+D:\UFPB\2018-2\Tópicos Especiais em Computação\PBR\Debug\PhysicallyBasedRendering.exe : fatal error LNK1120: 5 externo não resolvidos

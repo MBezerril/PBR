@@ -1,15 +1,2 @@
-﻿  buffer.cpp
-  camera.cpp
-  orthographic_camera.cpp
-  perspective_camera.cpp
-  onb.cpp
-  main.cpp
-  ray.cpp
-  raytracer.cpp
-  primitive.cpp
-  scene.cpp
-  sphere.cpp
-  triangle.cpp
-d:\ufpb\2018-2\tópicos especiais em computação\pbr\world\triangle.cpp(18): warning C4067: tokens inesperados após diretiva de pré-processador - esperado um newline
-  Gerando Código...
+﻿  material.cpp
   PhysicallyBasedRendering.vcxproj -> D:\UFPB\2018-2\Tópicos Especiais em Computação\PBR\x64\Debug\PhysicallyBasedRendering.exe

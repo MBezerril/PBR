@@ -6,6 +6,10 @@
 #include <memory>
 #include <vector>
 #include <glm/glm.hpp>
+#include <assimp/cimport.h>
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h> 
+#include <assimp/postprocess.h> 
 
 #include "primitive.h"
 #include "sphere.h" 

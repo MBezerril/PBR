@@ -68,6 +68,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -75,14 +78,14 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(SolutionDir)/glm;D:\UFPB\2018-2\Tópicos Especiais em Computação\glew-2.1.0\include;D:\UFPB\2018-2\Tópicos Especiais em Computação\freeglut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\assimp;$(SolutionDir)\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>D:\UFPB\2018-2\Tópicos Especiais em Computação\glew-2.1.0\lib;D:\UFPB\2018-2\Tópicos Especiais em Computação\freeglut\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32.dll;freeglut.dll;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -102,11 +105,11 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\UFPB\2018-2\Tópicos Especiais em Computação\PBR\glew-2.1.0\include;D:\UFPB\2018-2\Tópicos Especiais em Computação\PBR\freeglut\include;D:\UFPB\2018-2\Tópicos Especiais em Computação\PBR\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\glew-2.1.0\include;$(ProjectDir)\freeglut\include;$(ProjectDir)\glm;$(ProjectDir)\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>D:\UFPB\2018-2\Tópicos Especiais em Computação\PBR\glew-2.1.0\lib;D:\UFPB\2018-2\Tópicos Especiais em Computação\PBR\freeglut\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -116,6 +119,7 @@
     <ClCompile Include="Cameras\perspective_camera.cpp" />
     <ClCompile Include="Data Structures\onb.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="material.cpp" />
     <ClCompile Include="Rays\ray.cpp" />
     <ClCompile Include="Rays\raytracer.cpp" />
     <ClCompile Include="World\primitive.cpp" />
@@ -130,6 +134,7 @@
     <ClInclude Include="Cameras\perspective_camera.h" />
     <ClInclude Include="Data Structures\onb.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="material.h" />
     <ClInclude Include="Rays\intersection_record.h" />
     <ClInclude Include="Rays\ray.h" />
     <ClInclude Include="Rays\raytracer.h" />

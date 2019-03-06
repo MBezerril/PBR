@@ -15,7 +15,9 @@ bool Triangle::intersect(const Ray & ray, IntersectionRecord & intersection_reco
 	edge2 = points[2] - points[0];
 	pvec = glm::cross(ray.direction_, edge2);
 	det = glm::dot(edge1, pvec);
-#ifdef TEST_CULL 
+
+#ifdef TEST_CULL
+
 	if (det < EPSILON) return false;
 	/* calculate distance from vert0 to ray origin */
 	tvec = ray.origin_, points[0]);
@@ -40,7 +42,9 @@ bool Triangle::intersect(const Ray & ray, IntersectionRecord & intersection_reco
 	t = inv_det;
 	u = inv_det;
 	v = inv_det;
+
 #else			/* the non-culling branch */
+
 	if (det > -EPSILON && det < EPSILON)
 		return	false;
 	inv_det = 1.0 / det;

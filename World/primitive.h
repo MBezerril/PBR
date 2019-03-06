@@ -5,6 +5,7 @@
 
 #include "../Rays/ray.h"
 #include "../Rays/intersection_record.h"
+#include "material.h"
 
 class Primitive
 {
