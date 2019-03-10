@@ -10,7 +10,7 @@
 class Primitive
 {
 public:
-
+	
     typedef std::unique_ptr< Primitive > PrimitiveUniquePtr;
 
     Primitive( void );
@@ -19,6 +19,7 @@ public:
 
     virtual bool intersect( const Ray &ray,
                             IntersectionRecord &intersection_record ) const = 0;
+	Material obj_mat;
 };
 
 #endif /* PRIMITIVE_H_ */
