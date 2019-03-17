@@ -5,6 +5,6 @@ class DistanceMaterial : public Material
 public:
 	DistanceMaterial();
 	virtual ~DistanceMaterial();
-	glm::vec3 getColor(IntersectionRecord &intersection_record);
+	glm::vec3 getColor(IntersectionRecord &intersection_record) const;
 };
 

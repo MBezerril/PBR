@@ -24,7 +24,6 @@ bool Scene::intersect(const Ray &ray,
 }
 
 void Scene::load(void) {
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle{ glm::vec3{-0.5f, -0.5f, -1.0f }, glm::vec3{ 0.0f, -0.5f, -1.0f }, glm::vec3{ 0.0f,  0.0f, -1.0f } }));
 	Assimp::Importer importer;
 	importer.SetPropertyInteger(AI_CONFIG_PP_RVC_FLAGS, aiComponent_BONEWEIGHTS |
 		aiComponent_CAMERAS |
@@ -36,7 +35,7 @@ void Scene::load(void) {
 	monkey
 	monkey2
 	*/
-	const aiScene *scene = importer.ReadFile("objts/cube3.obj",
+	const aiScene *scene = importer.ReadFile("objts/monkey.obj",
 		aiProcess_CalcTangentSpace |
 		aiProcess_Triangulate |
 		aiProcess_RemoveComponent |
@@ -47,40 +46,34 @@ void Scene::load(void) {
 
 	float r, g, b;
 	for (unsigned int j = 0; j < scene->mNumMeshes; j++) {
-		auto mesh = scene->mMeshes[j];
+		aiMesh *mesh = scene->mMeshes[j];
 
 		for (unsigned int i = 0; i < mesh->mNumFaces; i++) {
-			auto face = mesh->mFaces[i];
+			aiFace face = mesh->mFaces[i];
 			
-			auto vert1 = mesh->mVertices[face.mIndices[0]];
-			auto vert2 = mesh->mVertices[face.mIndices[1]];
-			auto vert3 = mesh->mVertices[face.mIndices[2]];
+			aiVector3D vert1 = mesh->mVertices[face.mIndices[0]];
+			aiVector3D vert2 = mesh->mVertices[face.mIndices[1]];
+			aiVector3D vert3 = mesh->mVertices[face.mIndices[2]];
 
-			//glm::vec3 p1 = glm::vec3{ vert1.x, vert1.y, vert1.z };
-			//glm::vec3 p2 = glm::vec3{ vert2.x, vert2.y, vert2.z };
-			//glm::vec3 p3 = glm::vec3{ vert3.x, vert3.y, vert3.z };
+			glm::vec3 p1 = glm::vec3{ vert1.x, -vert1.y, vert1.z };
+			glm::vec3 p2 = glm::vec3{ vert2.x, -vert2.y, vert2.z };
+			glm::vec3 p3 = glm::vec3{ vert3.x, -vert3.y, vert3.z };
 
 			r = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
 			b = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
 			g = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
 
-			primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle(glm::vec3{ (float)vert1.x, (float)vert1.y, (float)vert1.z },
-				glm::vec3{ (float)vert2.x, (float)vert2.y, (float)vert2.z },
-				glm::vec3{ (float)vert3.x, (float)vert3.y, (float)vert3.z })));
+			primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle(p1, p2, p3, Material(glm::vec3(r,g,b)))));
 		}
 	}
 
 
 	//This lines import 4 spheres and one triangle to test the program
 
-	//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, -1.0f,  0.0f }, 0.2f }));
-	//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, 0.0f,  0.0f }, 0.2f }));
-	//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, 1.0f,  0.0f }, 0.2f }));
-	//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  1.0f, 0.0f,  0.0f }, 0.2f }));
-	//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  -1.0f, 0.0f,  0.0f }, 0.2f }));
-	//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{ -0.5f, 0.0f, -1.0f }, 0.2f }));
-	//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f,-0.5f, -2.0f }, 0.2f }));
-	//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, 0.5f, -3.0f }, 0.2f }));
-	//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle{ glm::vec3{ 0.0f, 0.0f,  -1.0f }, glm::vec3{ 0.0f, 1.0f, -1.0f }, glm::vec3{ 1.0f, 0.0f, -1.0f } }));
-	//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle{ glm::vec3{-0.5f, -0.5f, -1.0f }, glm::vec3{ 0.0f, -0.5f, -1.0f }, glm::vec3{ 0.0f,  0.0f, -1.0f } }));
+	/*primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, -1.0f, -2.0f }, 0.2f }));
+	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, 0.0f,  -2.0f }, 0.2f }));
+	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, 1.0f,  -2.0f }, 0.2f }));
+	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  1.0f, 0.0f,  -2.0f }, 0.2f }));
+	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  -1.0f, 0.0f, -2.0f }, 0.2f }));
+	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle{glm::vec3{ 0.5f, 0.0f, -1.0f }, glm::vec3{0.0f, 0.5f, -1.0f }, glm::vec3{ 0.0f,  0.0f, -1.0f } }));*/
 }

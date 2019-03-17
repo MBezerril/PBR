@@ -13,14 +13,13 @@ public:
 
 	Triangle(void);
 
-	Triangle(glm::vec3 vert1, glm::vec3 vert2, glm::vec3 vert3);
+	Triangle(glm::vec3 vert1, glm::vec3 vert2, glm::vec3 vert3, Material mat);
 
 	//void Intersect(TriAccel &acc, Ray &ray, Hit &hit);
 	bool intersect(const Ray &ray,
 		IntersectionRecord &intersection_record) const;
 
 	glm::vec3 points[3] = { { 0.0f, 0.0f, 0.0f },{ 0.0f, 0.0f, 0.0f },{ 0.0f, 0.0f, 0.0f } };
-
 
 private:
 

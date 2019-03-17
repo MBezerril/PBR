@@ -2,11 +2,17 @@
 #include <glm\glm.hpp>
 #include "../Rays/intersection_record.h"
 
-class Material
-{
+class Material {
+
 public:
 	Material();
+	Material(glm::vec3 c);
 	virtual ~Material();
-	glm::vec3 getColor(IntersectionRecord &intersection_record);
+	virtual glm::vec3 getRadiance(IntersectionRecord &intersection_record) const;
+	virtual glm::vec3 getEmitance(IntersectionRecord &intersection_record) const;
+	glm::vec3 getColor(IntersectionRecord &intersection_record) const;
+protected:
+	const float pi_value = 3.14159265359f;
+	glm::vec3 color;
 };
 

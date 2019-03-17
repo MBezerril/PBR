@@ -37,7 +37,8 @@ void RayTracer::integrate( void )
 
             if ( scene_.intersect( ray, intersection_record ) )
                 //buffer_.buffer_data_[x][y] = glm::vec3{ 1.0f, 0.0f, 0.0f };
-                buffer_.buffer_data_[x][y] = glm::vec3{ intersection_record.t_ * 0.2f };
+                //buffer_.buffer_data_[x][y] = glm::vec3{ intersection_record.t_ * 0.2f };
+                buffer_.buffer_data_[x][y] = glm::vec3{ intersection_record.color_ * intersection_record.t_ * 0.2f };
         }
     }
 

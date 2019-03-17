@@ -119,9 +119,10 @@
     <ClCompile Include="Cameras\perspective_camera.cpp" />
     <ClCompile Include="Data Structures\onb.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Rays\pathtracer.cpp" />
     <ClCompile Include="Rays\ray.cpp" />
     <ClCompile Include="Rays\raytracer.cpp" />
-    <ClCompile Include="World\distanceMaterial.cpp" />
+    <ClCompile Include="World\diffuseMaterial.cpp" />
     <ClCompile Include="World\material.cpp" />
     <ClCompile Include="World\primitive.cpp" />
     <ClCompile Include="World\scene.cpp" />
@@ -136,9 +137,10 @@
     <ClInclude Include="Data Structures\onb.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Rays\intersection_record.h" />
+    <ClInclude Include="Rays\pathtracer.h" />
     <ClInclude Include="Rays\ray.h" />
     <ClInclude Include="Rays\raytracer.h" />
-    <ClInclude Include="World\distanceMaterial.h" />
+    <ClInclude Include="World\diffuseMaterial.h" />
     <ClInclude Include="World\material.h" />
     <ClInclude Include="World\primitive.h" />
     <ClInclude Include="World\scene.h" />

@@ -7,18 +7,28 @@
 #include "../Rays/intersection_record.h"
 #include "material.h"
 
-class Primitive
-{
+class Primitive {
+
 public:
-	
-    typedef std::unique_ptr< Primitive > PrimitiveUniquePtr;
 
-    Primitive( void );
+	typedef std::unique_ptr< Primitive > PrimitiveUniquePtr;
 
-    virtual ~Primitive( void );
+	Primitive(Material mat);
 
-    virtual bool intersect( const Ray &ray,
-                            IntersectionRecord &intersection_record ) const = 0;
+	Primitive(void);
+
+	virtual ~Primitive(void);
+
+	virtual bool intersect(const Ray &ray,
+		IntersectionRecord &intersection_record) const = 0;
+
+	glm::vec3 getColor(IntersectionRecord &intersection_record) const;
+
+	virtual glm::vec3 getBRDF(IntersectionRecord &intersection_record) const;
+
+	virtual glm::vec3 getEmitance(IntersectionRecord &intersection_record) const;
+
+protected:
 	Material obj_mat;
 };
 

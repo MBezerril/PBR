@@ -6,8 +6,9 @@
 struct IntersectionRecord
 {
     float t_;
-    glm::vec3 position_;
-    glm::vec3 normal_;
+	glm::vec3 position_;
+	glm::vec3 normal_;
+	glm::vec3 color_;
 };
 
 #endif /* INTERSECTION_RECORD_H_ */

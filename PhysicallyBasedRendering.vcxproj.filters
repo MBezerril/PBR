@@ -78,8 +78,11 @@
     <ClCompile Include="World\material.cpp">
       <Filter>Source Files\World</Filter>
     </ClCompile>
-    <ClCompile Include="World\distanceMaterial.cpp">
+    <ClCompile Include="World\diffuseMaterial.cpp">
       <Filter>Source Files\World</Filter>
+    </ClCompile>
+    <ClCompile Include="Rays\pathtracer.cpp">
+      <Filter>Source Files\Rays</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -125,8 +128,11 @@
     <ClInclude Include="World\material.h">
       <Filter>Header Files\World</Filter>
     </ClInclude>
-    <ClInclude Include="World\distanceMaterial.h">
+    <ClInclude Include="World\diffuseMaterial.h">
       <Filter>Header Files\World</Filter>
+    </ClInclude>
+    <ClInclude Include="Rays\pathtracer.h">
+      <Filter>Header Files\Rays</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
