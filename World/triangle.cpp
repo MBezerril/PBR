@@ -2,7 +2,7 @@
 #define TEST_CULL
 Triangle::Triangle(void) {}
 
-Triangle::Triangle(glm::vec3 vert1, glm::vec3 vert2, glm::vec3 vert3, Material mat) {
+Triangle::Triangle(glm::vec3 vert1, glm::vec3 vert2, glm::vec3 vert3, Material *mat) {
 	points[0] = vert1;
 	points[1] = vert2;
 	points[2] = vert3;
@@ -41,7 +41,8 @@ bool Triangle::intersect(const Ray & ray, IntersectionRecord & intersection_reco
 	intersection_record.t_ = t;
 	intersection_record.position_ = ray.origin_ + intersection_record.t_ * ray.direction_;
 	intersection_record.normal_ = glm::normalize(intersection_record.position_ - tvec);
-	intersection_record.color_ = getColor(intersection_record);
+	intersection_record.color_ = getBRDF(intersection_record);
+	intersection_record.radiance_ = getEmitance(intersection_record);
 
 	return true;
 }

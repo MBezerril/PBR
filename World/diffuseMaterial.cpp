@@ -1,9 +1,13 @@
 #include "diffuseMaterial.h"
 
-glm::vec3 DiffuseMaterial::getRadiance(IntersectionRecord & intersection_record) const {
+DiffuseMaterial::DiffuseMaterial(glm::vec3 c) {
+	color = c;
+}
+
+glm::vec3 DiffuseMaterial::getBRDF(IntersectionRecord & intersection_record) const {
 	return color / pi_value;
 }
 
-glm::vec3 DiffuseMaterial::getEmitance(IntersectionRecord & intersection_record) const {
-	return glm::vec3();
+float DiffuseMaterial::getEmitance(IntersectionRecord & intersection_record) const {
+	return 0;
 }

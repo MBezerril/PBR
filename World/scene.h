@@ -14,6 +14,9 @@
 #include "primitive.h"
 #include "sphere.h" 
 #include "triangle.h" 
+#include "material.h"
+#include "diffuseMaterial.h"
+#include "lightMaterial.h"
 
 class Scene
 {

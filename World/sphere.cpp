@@ -3,7 +3,7 @@
 Sphere::Sphere(void) {
 }
 
-Sphere::Sphere(const glm::vec3 &center, float radius, Material mat) : center_{ center }, radius_{ radius }{
+Sphere::Sphere(const glm::vec3 &center, float radius, Material *mat) : center_{ center }, radius_{ radius }{
 	obj_mat = mat;
 }
 

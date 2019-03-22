@@ -11,11 +11,11 @@ Material::~Material() {
 }
 
 glm::vec3 Material::getBRDF(IntersectionRecord & intersection_record) const {
-	return color / pi_value;
+	return color;
 }
 
-glm::vec3 Material::getEmitance(IntersectionRecord & intersection_record) const {
-	return glm::vec3();
+float Material::getEmitance(IntersectionRecord & intersection_record) const {
+	return 0;
 }
 
 glm::vec3 Material::getColor(IntersectionRecord & intersection_record) const {

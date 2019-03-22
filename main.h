@@ -10,6 +10,7 @@
 #include "../World/scene.h"
 #include "../Cameras/buffer.h"
 #include "../Rays/raytracer.h"
+#include "../Rays/pathtracer.h"
 
 #endif /* MAIN_H_ */
 

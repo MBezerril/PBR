@@ -63,15 +63,15 @@ void Scene::load(void) {
 			b = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
 			g = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
 
-			primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle(p1, p2, p3, Material(glm::vec3(r,g,b)))));
+			primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle(p1, p2, p3, new DiffuseMaterial(glm::vec3(r,g,b)))));
 		}
 	}
-
+	//Luz da cena
+	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, -2.0f,  0.0f }, 0.2f , new LightMaterial(1)}));
 
 	//This lines import 4 spheres and one triangle to test the program
 
 	/*primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, -1.0f, -2.0f }, 0.2f }));
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, 0.0f,  -2.0f }, 0.2f }));
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, 1.0f,  -2.0f }, 0.2f }));
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  1.0f, 0.0f,  -2.0f }, 0.2f }));
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  -1.0f, 0.0f, -2.0f }, 0.2f }));

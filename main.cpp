@@ -30,10 +30,10 @@ int main(void) {
 		glm::vec3 background_color{ 10.0f, 0.0f, 0.0f };
 
 		// Set up the renderer.
-		RayTracer rt(camera,
+		PathTracer rt(camera,
 			scene,
 			background_color,
-			rendering_buffer);
+			rendering_buffer,5000,5);
 
 		rt.integrate(); // Renders the final image.
 

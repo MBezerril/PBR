@@ -8,7 +8,7 @@
 #include "../Cameras/camera.h"
 #include "../World/scene.h"
 #include "../Cameras/buffer.h"
-
+constexpr auto PI_VALUE = 3.14159265359f;
 class PathTracer
 {
 public:
@@ -16,11 +16,13 @@ public:
 	PathTracer( Camera &camera,
                const Scene &scene,
                const glm::vec3 background_color,
-               Buffer &buffer, int samples );
+               Buffer &buffer, int samples, int depth );
 
     void integrate( void );
 
 private:
+
+	Ray getNewRay(glm::vec3 orig);
 
     const Camera &camera_;
 
@@ -31,6 +33,8 @@ private:
     Buffer &buffer_;
 
 	int samples_;
+
+	int max_depth_;
 
 	glm::vec3 L(const Ray &ray, int depth);
 

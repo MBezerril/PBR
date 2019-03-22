@@ -13,7 +13,7 @@ public:
 
 	typedef std::unique_ptr< Primitive > PrimitiveUniquePtr;
 
-	Primitive(Material mat);
+	Primitive(const Material *mat);
 
 	Primitive(void);
 
@@ -26,10 +26,10 @@ public:
 
 	virtual glm::vec3 getBRDF(IntersectionRecord &intersection_record) const;
 
-	virtual glm::vec3 getEmitance(IntersectionRecord &intersection_record) const;
+	virtual float getEmitance(IntersectionRecord &intersection_record) const;
 
 protected:
-	Material obj_mat;
+	const Material *obj_mat;
 };
 
 #endif /* PRIMITIVE_H_ */

@@ -1,9 +1,2 @@
-﻿  pathtracer.cpp
-  raytracer.cpp
-  primitive.cpp
-  scene.cpp
-  sphere.cpp
-  triangle.cpp
-  main.cpp
-  Gerando Código...
+﻿  scene.cpp
   PhysicallyBasedRendering.vcxproj -> D:\UFPB\2018-2\Tópicos Especiais em Computação\PBR\x64\Debug\PhysicallyBasedRendering.exe

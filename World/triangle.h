@@ -13,7 +13,7 @@ public:
 
 	Triangle(void);
 
-	Triangle(glm::vec3 vert1, glm::vec3 vert2, glm::vec3 vert3, Material mat);
+	Triangle(glm::vec3 vert1, glm::vec3 vert2, glm::vec3 vert3, Material *mat);
 
 	//void Intersect(TriAccel &acc, Ray &ray, Hit &hit);
 	bool intersect(const Ray &ray,

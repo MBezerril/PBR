@@ -3,6 +3,7 @@
 class DiffuseMaterial : public Material
 {
 public:
-	virtual glm::vec3 getRadiance(IntersectionRecord &intersection_record) const;
-	virtual glm::vec3 getEmitance(IntersectionRecord &intersection_record) const;
+	DiffuseMaterial(glm::vec3 c);
+	glm::vec3 getBRDF(IntersectionRecord &intersection_record) const;
+	float getEmitance(IntersectionRecord &intersection_record) const;
 };

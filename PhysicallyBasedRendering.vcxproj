@@ -106,6 +106,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir)\glew-2.1.0\include;$(ProjectDir)\freeglut\include;$(ProjectDir)\glm;$(ProjectDir)\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(ProjectDir)\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -123,6 +124,7 @@
     <ClCompile Include="Rays\ray.cpp" />
     <ClCompile Include="Rays\raytracer.cpp" />
     <ClCompile Include="World\diffuseMaterial.cpp" />
+    <ClCompile Include="World\lightMaterial.cpp" />
     <ClCompile Include="World\material.cpp" />
     <ClCompile Include="World\primitive.cpp" />
     <ClCompile Include="World\scene.cpp" />
@@ -141,6 +143,7 @@
     <ClInclude Include="Rays\ray.h" />
     <ClInclude Include="Rays\raytracer.h" />
     <ClInclude Include="World\diffuseMaterial.h" />
+    <ClInclude Include="World\lightMaterial.h" />
     <ClInclude Include="World\material.h" />
     <ClInclude Include="World\primitive.h" />
     <ClInclude Include="World\scene.h" />
