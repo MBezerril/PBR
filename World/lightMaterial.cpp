@@ -1,10 +1,11 @@
 #include "lightMaterial.h"
 
-LightMaterial::LightMaterial(float intensity) {
+LightMaterial::LightMaterial(glm::vec3 c, float intensity) {
 	 intensity_ = intensity;
+	 color = c;
 }
 
-glm::vec3 LightMaterial::getBRDF(IntersectionRecord & intersection_record) const {
+glm::vec3 LightMaterial::getColor(IntersectionRecord & intersection_record) const {
 	return color / pi_value;
 }
 

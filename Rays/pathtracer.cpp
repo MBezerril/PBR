@@ -41,6 +41,9 @@ void PathTracer::integrate(void) {
 					//buffer_.buffer_data_[x][y] = glm::vec3{ 1.0f, 0.0f, 0.0f };
 					buffer_.buffer_data_[x][y] += L(ray, 0);
 				}
+				else {
+					break;
+				}
 			}
 			buffer_.buffer_data_[x][y] /= samples_;
 		}
@@ -49,13 +52,16 @@ void PathTracer::integrate(void) {
 	std::clog << std::endl;
 }
 
-Ray PathTracer::getNewRay(glm::vec3 orig) {
-	int r1 = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
-	int r2 = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
+Ray PathTracer::getNewRay(IntersectionRecord interc) {
+	ONB onb;
+	onb.setFromV(interc.normal_);
+	float r1 = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
+	float r2 = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
 	float theta = glm::acos(1 - r1);
 	float phi = 2 * PI_VALUE * r2;
-	glm::vec3 direction = glm::vec3(glm::sin(theta)*glm::cos(phi), glm::sin(theta)*glm::sin(phi), glm::cos(theta));
-	return Ray(orig, direction);
+	glm::vec3 direction = glm::normalize(glm::vec3(glm::sin(theta)*glm::cos(phi), glm::sin(theta)*glm::sin(phi), glm::cos(theta)));
+	direction = onb.getBasisMatrix() * direction;
+	return Ray(interc.position_+(interc.normal_*0.001f), direction);
 }
 
 
@@ -66,8 +72,8 @@ glm::vec3 PathTracer::L(const Ray & ray, int depth) {
 	if (depth < max_depth_) {
 		intersection_record.t_ = std::numeric_limits< double >::max();
 		if (scene_.intersect(ray, intersection_record)) {
-			Ray refl_ray = getNewRay(intersection_record.position_);
-			Lo = intersection_record.radiance_ + 2.0f * PI_VALUE * intersection_record.color_ * L(refl_ray, depth++) * glm::dot(intersection_record.normal_, refl_ray.direction_);
+			Ray refl_ray = getNewRay(intersection_record);
+			Lo = intersection_record.radiance_ + (2.0f * PI_VALUE * intersection_record.color_ * L(refl_ray, ++depth) * glm::dot(intersection_record.normal_, refl_ray.direction_));
 		}
 	}
 	return Lo;

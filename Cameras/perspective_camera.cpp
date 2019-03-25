@@ -32,6 +32,5 @@ Ray PerspectiveCamera::getWorldSpaceRay( const glm::vec2 &pixel_coord ) const
                       pixel_coord[1] / static_cast< float >( resolution_[1] ) * height + min_y_,
                       -depth_view_distance_ };
 
-    return Ray{ position_, 
-                glm::normalize( onb_.getBasisMatrix() * projection)};
+    return Ray{ position_, glm::normalize( onb_.getBasisMatrix() * projection)};
 }

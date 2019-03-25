@@ -8,7 +8,9 @@
 #include "../Cameras/camera.h"
 #include "../World/scene.h"
 #include "../Cameras/buffer.h"
+#include "../Data Structures/onb.h"
 constexpr auto PI_VALUE = 3.14159265359f;
+
 class PathTracer
 {
 public:
@@ -22,7 +24,7 @@ public:
 
 private:
 
-	Ray getNewRay(glm::vec3 orig);
+	Ray getNewRay(IntersectionRecord interc);
 
     const Camera &camera_;
 

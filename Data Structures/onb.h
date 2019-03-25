@@ -10,7 +10,7 @@ public:
     // The default constructor creates a "standard" ONB.
     ONB( void );
 
-    // Set up an ONB from an normalized input vector 'v' that will be assumed to be aligned to
+    // Set up an ONB from an normalized input vector o'v' that will be assumed to be aligned t
     // the 'v' (up) vector of the ONB to be created.
     void setFromV( const glm::vec3 &v );
 
