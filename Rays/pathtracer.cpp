@@ -80,7 +80,7 @@ glm::vec3 PathTracer::L(const Ray & ray, int depth) {
 				cossin_ = -cossin_;
 				refl_ray.direction_ = -refl_ray.direction_;
 			}
-			Lo = intersection_record.radiance_ + (2.0f * PI_VALUE * intersection_record.color_ * L(refl_ray, ++depth) * cossin_);
+			Lo = intersection_record.emitance_ + (2.0f * PI_VALUE * intersection_record.color_ * L(refl_ray, ++depth) * cossin_);
 		}
 	}
 	return Lo;

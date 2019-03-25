@@ -15,7 +15,7 @@ glm::vec3 Primitive::getColor(IntersectionRecord & intersection_record) const {
 }
 
 glm::vec3 Primitive::getBRDF(IntersectionRecord & intersection_record) const {
-	return glm::vec3();
+	return obj_mat->getBRDF(intersection_record);
 }
 
 float Primitive::getEmitance(IntersectionRecord & intersection_record) const {

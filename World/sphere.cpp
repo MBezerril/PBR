@@ -38,7 +38,8 @@ bool Sphere::intersect(const Ray &ray,
 	intersection_record.position_ = ray.origin_ + intersection_record.t_ * ray.direction_;
 	intersection_record.normal_ = glm::normalize(intersection_record.position_ - center_);
 	intersection_record.color_ = getColor(intersection_record);
-	intersection_record.radiance_ = getEmitance(intersection_record);
+	intersection_record.emitance_ = getEmitance(intersection_record);
+
 
 	return true;
 }
