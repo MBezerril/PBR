@@ -10,8 +10,8 @@ PathTracer::PathTracer(Camera &camera,
 	buffer_(buffer),
 	samples_(samples),
 	max_depth_(depth)
-
-{}
+{
+}
 
 
 void PathTracer::integrate(void) {
@@ -55,13 +55,15 @@ void PathTracer::integrate(void) {
 Ray PathTracer::getNewRay(IntersectionRecord interc) {
 	ONB onb;
 	onb.setFromV(interc.normal_);
-	float r1 = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
-	float r2 = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
+	auto seed = std::chrono::high_resolution_clock::now().time_since_epoch().count();
+	auto real_rand = std::bind(std::uniform_real_distribution<double>(0, 1), std::mt19937(seed));
+	float r1 = real_rand();
+	float r2 = real_rand();
 	float theta = glm::acos(1 - r1);
 	float phi = 2 * PI_VALUE * r2;
 	glm::vec3 direction = glm::normalize(glm::vec3(glm::sin(theta)*glm::cos(phi), glm::sin(theta)*glm::sin(phi), glm::cos(theta)));
 	direction = onb.getBasisMatrix() * direction;
-	return Ray(interc.position_+(interc.normal_*0.001f), direction);
+	return Ray(interc.position_ + (interc.normal_*0.001f), direction);
 }
 
 
@@ -73,7 +75,12 @@ glm::vec3 PathTracer::L(const Ray & ray, int depth) {
 		intersection_record.t_ = std::numeric_limits< double >::max();
 		if (scene_.intersect(ray, intersection_record)) {
 			Ray refl_ray = getNewRay(intersection_record);
-			Lo = intersection_record.radiance_ + (2.0f * PI_VALUE * intersection_record.color_ * L(refl_ray, ++depth) * glm::dot(intersection_record.normal_, refl_ray.direction_));
+			float cossin_ = glm::dot(intersection_record.normal_, refl_ray.direction_);
+			if (cossin_ < 0) {
+				cossin_ = -cossin_;
+				refl_ray.direction_ = -refl_ray.direction_;
+			}
+			Lo = intersection_record.radiance_ + (2.0f * PI_VALUE * intersection_record.color_ * L(refl_ray, ++depth) * cossin_);
 		}
 	}
 	return Lo;
