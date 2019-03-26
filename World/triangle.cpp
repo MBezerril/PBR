@@ -41,8 +41,8 @@ bool Triangle::intersect(const Ray & ray, IntersectionRecord & intersection_reco
 	intersection_record.t_ = t;
 	intersection_record.position_ = ray.origin_ + intersection_record.t_ * ray.direction_;
 	intersection_record.normal_ = glm::normalize(glm::cross(edge1, edge2));
-	intersection_record.color_ = getColor(intersection_record);
-	intersection_record.radiance_ = getEmitance(intersection_record);
+	intersection_record.color_ = getBRDF(intersection_record);
+	intersection_record.emitance_ = getEmitance(intersection_record);
 
 	return true;
 }

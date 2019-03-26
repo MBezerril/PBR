@@ -4,6 +4,9 @@
 #include <sstream>
 #include <iomanip>
 #include <cmath>
+#include <random>
+#include <chrono>
+#include <functional>
 
 #include "../Cameras/camera.h"
 #include "../World/scene.h"
@@ -40,6 +43,7 @@ private:
 
 	glm::vec3 L(const Ray &ray, int depth);
 
+	std::mt19937_64 random_generator_;
 };
 
 #endif /* PATHTRACER_H_ */
