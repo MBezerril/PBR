@@ -33,7 +33,7 @@ int main(void) {
 		PathTracer rt(camera,
 			scene,
 			background_color,
-			rendering_buffer, 200, 5);
+			rendering_buffer, 1000, 5);
 
 		rt.integrate(); // Renders the final image.
 
