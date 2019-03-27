@@ -18,9 +18,7 @@ Created and tested the triangle algorithm and was used the *Fast, Minimum Storag
 The first try didn't go very well, but was a point position mistake.
 
 *The speed and memory tests wasn't make yet, we still need the second triangle intersection algotihm to make the comparisions*
-
 ![Example](https://github.com/MBezerril/PBR/blob/master/Outputs/Change1-Triangle.jpg)
-
 
 # RT-Template
 
