@@ -12,15 +12,15 @@ Official site: http://www.assimp.org/index.php
 
 GitHub repository: https://github.com/assimp/assimp
 
+![Example2](https://github.com/MBezerril/PBR/blob/master/Outputs/Change2-MonkeyBlender-fixed.png)
+*Blender monkey imported using assimp. The gray scale is set using the object distance to the camera*
 # Changes 1
 Created and tested the triangle algorithm and was used the *Fast, Minimum Storage Ray/Triangle Intersection (Möller, T.; Trumbore, B.)*
 
 The first try didn't go very well, but was a point position mistake.
 
 *The speed and memory tests wasn't make yet, we still need the second triangle intersection algotihm to make the comparisions*
-
-Output image rendered can be found in the *Output* folder with the "*Tringle.jpg*
-
+![Example](https://github.com/MBezerril/PBR/blob/master/Outputs/Change1-Triangle.jpg)
 
 # RT-Template
 

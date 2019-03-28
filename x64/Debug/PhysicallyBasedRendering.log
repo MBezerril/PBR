@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 ﻿  scene.cpp
   main.cpp
   Gerando Código...
   PhysicallyBasedRendering.vcxproj -> D:\UFPB\2018-2\Tópicos Especiais em Computação\PBR\x64\Debug\PhysicallyBasedRendering.exe
+=======
+﻿  pathtracer.cpp
+  PhysicallyBasedRendering.vcxproj -> C:\Users\jvanj\source\repos\PBR-master\PBR\x64\Debug\PhysicallyBasedRendering.exe
+>>>>>>> 0ac5847e1a35e79096066947f261ca1722304c70
