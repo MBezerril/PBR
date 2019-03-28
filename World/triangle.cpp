@@ -41,6 +41,9 @@ bool Triangle::intersect(const Ray & ray, IntersectionRecord & intersection_reco
 	intersection_record.t_ = t;
 	intersection_record.position_ = ray.origin_ + intersection_record.t_ * ray.direction_;
 	intersection_record.normal_ = glm::normalize(glm::cross(edge1, edge2));
+	if (glm::dot(intersection_record.normal_, ray.direction_) > 0) {
+		intersection_record.normal_ = glm::normalize(glm::cross(edge2, edge1));
+	}
 	intersection_record.color_ = getBRDF(intersection_record);
 	intersection_record.emitance_ = getEmitance(intersection_record);
 

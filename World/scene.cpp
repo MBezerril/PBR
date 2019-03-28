@@ -59,15 +59,14 @@ void Scene::load(void) {
 			glm::vec3 p2 = glm::vec3{ vert2.x, -vert2.y, vert2.z };
 			glm::vec3 p3 = glm::vec3{ vert3.x, -vert3.y, vert3.z };
 
-			r = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
 			b = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
-			g = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
 
-			//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle(p1, p2, p3, new DiffuseMaterial(glm::vec3(r, g, b)))));
+			primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle{ p2, p1, p3, new DiffuseMaterial(glm::vec3(1, 1, 1)) }));
 		}
 	}
 	//Luz da cena
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, -2.0f,  0.0f }, 0.8f , new LightMaterial(glm::vec3(0, 0, 0) , 50.0f) }));
+	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, -1.0f,  0.0f }, 0.1f , new LightMaterial(glm::vec3(0, 0, 0) , 80.0f) }));
+	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, 0.75f,  -0.5f }, 0.1f , new DiffuseMaterial(glm::vec3(0, 0, 1)) }));
 	/*primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  2.0f, 0.0f,  0.0f }, 0.8f ,new DiffuseMaterial(glm::vec3(1, 1, 0)) }));
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle(glm::vec3{ 3.0f, 1.0f, 3.0f }, glm::vec3{ -3.0f, 1.0f, 3.0f }, glm::vec3{ 3.0f,  1.0f, -3.0f }, new DiffuseMaterial(glm::vec3(1, 0, 0)))));
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle(glm::vec3{ -3.0f, 1.0f, 3.0f }, glm::vec3{ -3.0f, 1.0f, -3.0f }, glm::vec3{ 3.0f,  1.0f, -3.0f }, new DiffuseMaterial(glm::vec3(1, 0, 0)))));*/
@@ -80,61 +79,4 @@ void Scene::load(void) {
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  1.0f, 0.0f,  -2.0f }, 0.2f }));
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  -1.0f, 0.0f, -2.0f }, 0.2f }));
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle{glm::vec3{ 0.5f, 0.0f, -1.0f }, glm::vec3{0.0f, 0.5f, -1.0f }, glm::vec3{ 0.0f,  0.0f, -1.0f } }));*/
-
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{glm::vec3{ 0.0f, -3.0f, 0.0f }, // sombra: -0.7f, -0.5f, 0.0f
-		0.2f, new DiffuseMaterial(glm::vec3(1, 1, 0))}));
-
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{glm::vec3{ 0.0f, 0.6f, 0.0f },
-	 0.4f,new DiffuseMaterial(glm::vec3(1, 1, 0))})); 
-
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle{glm::vec3{ -2.0f, 1.0f, 2.0f },
-		glm::vec3{ -2.0f, 1.0f, -4.0f },
-		glm::vec3{ 2.0f, 1.0f, -4.0f },
-		new DiffuseMaterial(glm::vec3(1, 1, 0))}));
-
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle{glm::vec3{ -2.0f, 1.0f, 2.0f },
-		glm::vec3{ 2.0f, 1.0f, -4.0f },
-		glm::vec3{ 2.0f, 1.0f, 2.0f },
-		new DiffuseMaterial(glm::vec3(1, 1, 0))}));
-
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle{glm::vec3{ -2.0f, -3.0f, 2.0f },
-		glm::vec3{ -2.0f, -3.0f, -4.0f },
-		glm::vec3{ 2.0f, -3.0f, -4.0f }, 
-		new DiffuseMaterial(glm::vec3(1, 1, 0))})); // emittance
-
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle{glm::vec3{ -2.0f, -3.0f, 2.0f },
-		glm::vec3{ 2.0f, -3.0f, -4.0f },
-		glm::vec3{ 2.0f, -3.0f, 2.0f },
-		new DiffuseMaterial(glm::vec3(1, 1, 0))})); // emittance
-
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle{glm::vec3{ -2.0f, 1.0f, 2.0f },
-		glm::vec3{ 2.0f, 1.0f, 2.0f },
-		glm::vec3{ -2.0f, -4.0f, 2.0f }, 
-		new DiffuseMaterial(glm::vec3(1, 1, 0))})); 
-
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle{glm::vec3{ 2.0f, 1.0f, 2.0f },
-		glm::vec3{ 2.0f, -4.0f, 2.0f },
-		glm::vec3{ -2.0f, -4.0f, 2.0f }, 
-		new DiffuseMaterial(glm::vec3(1, 1, 0))})); 
-
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle{glm::vec3{ 2.0f, 1.0f, 2.0f },
-		glm::vec3{ 2.0f, 1.0f, -4.0f },
-		glm::vec3{ 2.0f, -4.0f, 2.0f }, 
-		new DiffuseMaterial(glm::vec3(1, 1, 0))})); // emittance
-
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle{glm::vec3{ 2.0f, 1.0f, -4.0f },
-		glm::vec3{ 2.0f, -4.0f, -4.0f },
-		glm::vec3{ 2.0f, -4.0f, 2.0f },
-		new DiffuseMaterial(glm::vec3(1, 1, 0))})); // emittance
-
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle{glm::vec3{ -2.0f, 1.0f, 2.0f },
-		glm::vec3{ -2.0f, 1.0f, -4.0f },
-		glm::vec3{ -2.0f, -4.0f, 2.0f }, 
-		new DiffuseMaterial(glm::vec3(1, 1, 0)) })); // emittance
-
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle{glm::vec3{ -2.0f, 1.0f, -4.0f },
-		glm::vec3{ -2.0f, -4.0f, -4.0f },
-		glm::vec3{ -2.0f, -4.0f, 2.0f }, 
-		new DiffuseMaterial(glm::vec3(1, 1, 0))})); // emittance
-
 }
