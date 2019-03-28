@@ -68,9 +68,9 @@ void Scene::load(void) {
 	}
 	//Luz da cena
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, -2.0f,  0.0f }, 0.8f , new LightMaterial(glm::vec3(0, 0, 0) , 50.0f) }));
-	/*primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  2.0f, 0.0f,  0.0f }, 0.8f ,new DiffuseMaterial(glm::vec3(1, 1, 0)) }));
+	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  2.0f, 0.0f,  0.0f }, 0.8f ,new DiffuseMaterial(glm::vec3(1, 1, 0)) }));
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle(glm::vec3{ 3.0f, 1.0f, 3.0f }, glm::vec3{ -3.0f, 1.0f, 3.0f }, glm::vec3{ 3.0f,  1.0f, -3.0f }, new DiffuseMaterial(glm::vec3(1, 0, 0)))));
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle(glm::vec3{ -3.0f, 1.0f, 3.0f }, glm::vec3{ -3.0f, 1.0f, -3.0f }, glm::vec3{ 3.0f,  1.0f, -3.0f }, new DiffuseMaterial(glm::vec3(1, 0, 0)))));*/
+	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle(glm::vec3{ -3.0f, 1.0f, 3.0f }, glm::vec3{ -3.0f, 1.0f, -3.0f }, glm::vec3{ 3.0f,  1.0f, -3.0f }, new DiffuseMaterial(glm::vec3(1, 0, 0)))));
 
 
 	//This lines import 4 spheres and one triangle to test the program
@@ -81,7 +81,7 @@ void Scene::load(void) {
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  -1.0f, 0.0f, -2.0f }, 0.2f }));
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle{glm::vec3{ 0.5f, 0.0f, -1.0f }, glm::vec3{0.0f, 0.5f, -1.0f }, glm::vec3{ 0.0f,  0.0f, -1.0f } }));*/
 
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{glm::vec3{ 0.0f, -3.0f, 0.0f }, // sombra: -0.7f, -0.5f, 0.0f
+	/*primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{glm::vec3{ 0.0f, -3.0f, 0.0f }, // sombra: -0.7f, -0.5f, 0.0f
 		0.2f, new DiffuseMaterial(glm::vec3(1, 1, 0))}));
 
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{glm::vec3{ 0.0f, 0.6f, 0.0f },
@@ -136,5 +136,6 @@ void Scene::load(void) {
 		glm::vec3{ -2.0f, -4.0f, -4.0f },
 		glm::vec3{ -2.0f, -4.0f, 2.0f }, 
 		new DiffuseMaterial(glm::vec3(1, 1, 0))})); // emittance
+		*/
 
 }

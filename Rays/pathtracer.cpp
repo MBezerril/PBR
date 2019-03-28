@@ -13,6 +13,9 @@ PathTracer::PathTracer(Camera &camera,
 {
 }
 
+auto seed = std::chrono::system_clock::now().time_since_epoch().count();
+std::uniform_real_distribution<float> distribuition(0.0f, 1.0f);
+std::mt19937 generator(seed);
 
 void PathTracer::integrate(void) {
 	IntersectionRecord intersection_record;
@@ -35,7 +38,14 @@ void PathTracer::integrate(void) {
 			for (int w = 0; w < samples_; w++) {
 				intersection_record.t_ = std::numeric_limits< double >::max();
 
-				Ray ray{ camera_.getWorldSpaceRay(glm::vec2{ x + 0.5f, y + 0.5f }) };
+				auto v = distribuition(generator);
+				auto h = distribuition(generator);
+				while (v == 1.0f)
+					v = distribuition(generator);
+				while (h == 1.0f)
+					h = distribuition(generator);
+
+				Ray ray{ camera_.getWorldSpaceRay(glm::vec2{ x + v, y + h }) };
 
 				if (scene_.intersect(ray, intersection_record)) {
 					//buffer_.buffer_data_[x][y] = glm::vec3{ 1.0f, 0.0f, 0.0f };
