@@ -13,13 +13,11 @@ PathTracer::PathTracer(Camera &camera,
 {
 }
 
-auto seed = std::chrono::system_clock::now().time_since_epoch().count();
-std::uniform_real_distribution<float> distribuition(0.0f, 1.0f);
-std::mt19937 generator(seed);
-
 void PathTracer::integrate(void) {
 	IntersectionRecord intersection_record;
-
+	auto seed = std::chrono::system_clock::now().time_since_epoch().count();
+	std::uniform_real_distribution<float> distribuition(0.0f, 1.0f);
+	std::mt19937_64 generator(seed);
 	// Image space origin (i.e. x = 0 and y = 0) at the top left corner.
 
 	// Loops over image rows
@@ -66,7 +64,7 @@ Ray PathTracer::getNewRay(IntersectionRecord interc) {
 	ONB onb;
 	onb.setFromV(interc.normal_);
 	auto seed = std::chrono::high_resolution_clock::now().time_since_epoch().count();
-	auto real_rand = std::bind(std::uniform_real_distribution<double>(0, 1), std::mt19937(seed));
+	auto real_rand = std::bind(std::uniform_real_distribution<double>(0, 1), std::mt19937_64(seed));
 	float r1 = real_rand();
 	float r2 = real_rand();
 	float theta = glm::acos(1 - r1);
@@ -75,7 +73,6 @@ Ray PathTracer::getNewRay(IntersectionRecord interc) {
 	direction = onb.getBasisMatrix() * direction;
 	return Ray(interc.position_ + (interc.normal_*0.001f), direction);
 }
-
 
 
 glm::vec3 PathTracer::L(const Ray & ray, int depth) {

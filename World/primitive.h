@@ -22,8 +22,6 @@ public:
 	virtual bool intersect(const Ray &ray,
 		IntersectionRecord &intersection_record) const = 0;
 
-	glm::vec3 getColor(IntersectionRecord &intersection_record) const;
-
 	virtual glm::vec3 getBRDF(IntersectionRecord &intersection_record) const;
 
 	virtual float getEmitance(IntersectionRecord &intersection_record) const;

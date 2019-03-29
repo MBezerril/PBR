@@ -85,7 +85,7 @@
       <Filter>Source Files\Rays</Filter>
     </ClCompile>
     <ClCompile Include="World\lightMaterial.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\World</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -138,7 +138,7 @@
       <Filter>Header Files\Rays</Filter>
     </ClInclude>
     <ClInclude Include="World\lightMaterial.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\World</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

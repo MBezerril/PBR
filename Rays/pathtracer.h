@@ -42,8 +42,6 @@ private:
 	int max_depth_;
 
 	glm::vec3 L(const Ray &ray, int depth);
-
-	std::mt19937_64 random_generator_;
 };
 
 #endif /* PATHTRACER_H_ */

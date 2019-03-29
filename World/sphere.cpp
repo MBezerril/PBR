@@ -37,7 +37,7 @@ bool Sphere::intersect(const Ray &ray,
 	intersection_record.t_ = (t1 > 0.00001f) ? t1 : t2;
 	intersection_record.position_ = ray.origin_ + intersection_record.t_ * ray.direction_;
 	intersection_record.normal_ = glm::normalize(intersection_record.position_ - center_);
-	intersection_record.color_ = getColor(intersection_record);
+	intersection_record.color_ = getBRDF(intersection_record);
 	intersection_record.emitance_ = getEmitance(intersection_record);
 
 
