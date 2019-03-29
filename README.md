@@ -1,3 +1,11 @@
+# Changes 3
+## The path tracer
+Now we implemented the path trace algorithm. To work properly we need to create a material class, and from the material class we created a light and diffuse material.
+The sampling used in each pixel is the jittered sampling. 
+![Example2](https://github.com/MBezerril/PBR/blob/master/Outputs/pathtracercomparison.jpg)<br/>
+It's easy to se how natural the light becomes with the increasing of the number of samples, this is called Monte Carlo method, where we can use lot's of sample to make a more realistic aproximation of the real value. ![Wikipedia - Monte Carlo Method](https://en.wikipedia.org/wiki/Monte_Carlo_method)
+Another improvement is the use of the Mersenne Twister engine ,a standart c++11 library, to make the best pseudo-randomic numbers distribution to avoid some kind of bias in the sampling directions. 
+
 # Changes 2
 
 ## Inserted the pinhole camera and the assimp:
