@@ -67,7 +67,7 @@ void Scene::load(void) {
 		}
 	}
 	//Luz da cena
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, -2.0f,  0.0f }, 0.8f , new LightMaterial(glm::vec3(0, 0, 0) , 2.0f) }));
+	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, -2.0f,  0.0f }, 0.8f , new LightMaterial(glm::vec3(0, 0, 0) , 15.0f) }));
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  2.0f, 0.0f,  0.0f }, 0.8f ,new DiffuseMaterial(glm::vec3(1, 1, 0)) }));
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle(glm::vec3{ 3.0f, 1.0f, 3.0f }, glm::vec3{ -3.0f, 1.0f, 3.0f }, glm::vec3{ 3.0f,  1.0f, -3.0f }, new DiffuseMaterial(glm::vec3(1, 0, 0)))));
 	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle(glm::vec3{ -3.0f, 1.0f, 3.0f }, glm::vec3{ -3.0f, 1.0f, -3.0f }, glm::vec3{ 3.0f,  1.0f, -3.0f }, new DiffuseMaterial(glm::vec3(1, 0, 0)))));

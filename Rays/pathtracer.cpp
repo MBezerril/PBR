@@ -19,9 +19,9 @@ void PathTracer::integrate(void) {
 	std::uniform_real_distribution<float> distribuition(0.0f, 1.0f);
 	std::mt19937_64 generator(seed);
 	// Image space origin (i.e. x = 0 and y = 0) at the top left corner.
-
+	#pragma omp parallel for schedule(dynamic,1)
 	// Loops over image rows
-	for (std::size_t y = 0; y < buffer_.v_resolution_; y++) {
+	for (int y = 0; y < buffer_.v_resolution_; y++) {
 		std::stringstream progress_stream;
 		progress_stream << "\r  progress .........................: "
 			<< std::fixed << std::setw(6)
@@ -48,10 +48,10 @@ void PathTracer::integrate(void) {
 				if (scene_.intersect(ray, intersection_record)) {
 					//buffer_.buffer_data_[x][y] = glm::vec3{ 1.0f, 0.0f, 0.0f };
 					buffer_.buffer_data_[x][y] += L(ray, 0);
-				}
+				}/*
 				else {
 					break;
-				}
+				}*/
 			}
 			buffer_.buffer_data_[x][y] /= samples_;
 		}

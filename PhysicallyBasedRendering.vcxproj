@@ -108,6 +108,7 @@
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir)\glew-2.1.0\include;$(ProjectDir)\freeglut\include;$(ProjectDir)\glm;$(ProjectDir)\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
+      <OpenMPSupport>true</OpenMPSupport>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(ProjectDir)\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
