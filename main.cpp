@@ -32,10 +32,20 @@ int main(void) {
 			background_color,
 			rendering_buffer, 1000, 5);
 
+		clock_t begin = clock();//Get the initial time
+
 		rt.integrate(); // Renders the final image.
+		
+		clock_t end = clock();//get the end time
+		double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC; //Calc the seconds elapsed to complete the render
 
 		// Save the rendered image to a .ppm file.
 		rendering_buffer.save(nome);
+	#ifdef windows
+		std::cout << "Tempo: " << elapsed_secs << std::endl;
+		system("pause");
+	#endif // windows
+
 	}
 
 	return EXIT_SUCCESS;

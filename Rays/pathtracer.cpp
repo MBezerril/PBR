@@ -14,14 +14,14 @@ PathTracer::PathTracer(Camera &camera,
 }
 
 void PathTracer::integrate(void) {
-	IntersectionRecord intersection_record;
-	auto seed = std::chrono::system_clock::now().time_since_epoch().count();
-	std::uniform_real_distribution<float> distribuition(0.0f, 1.0f);
-	std::mt19937_64 generator(seed);
 	// Image space origin (i.e. x = 0 and y = 0) at the top left corner.
-	#pragma omp parallel for schedule(dynamic,1)
 	// Loops over image rows
+	#pragma omp parallel for schedule(dynamic,1)
 	for (int y = 0; y < buffer_.v_resolution_; y++) {
+	IntersectionRecord intersection_record;
+		auto seed = std::chrono::system_clock::now().time_since_epoch().count();
+		std::uniform_real_distribution<float> distribuition(0.0f, 1.0f);
+		std::mt19937_64 generator(seed);
 		std::stringstream progress_stream;
 		progress_stream << "\r  progress .........................: "
 			<< std::fixed << std::setw(6)

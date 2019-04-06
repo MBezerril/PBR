@@ -1,7 +1,9 @@
 #ifndef MAIN_H_
 #define MAIN_H_
+#define windows
 //Standard libs include
 #include <string>
+#include <ctime>
 
 //Project files include
 #include "../Cameras/camera.h"
