@@ -87,6 +87,9 @@
     <ClCompile Include="World\lightMaterial.cpp">
       <Filter>Source Files\World</Filter>
     </ClCompile>
+    <ClCompile Include="Data Structures\BoxVolume.cpp">
+      <Filter>Source Files\Data Structures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cameras\buffer.h">
@@ -139,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="World\lightMaterial.h">
       <Filter>Header Files\World</Filter>
+    </ClInclude>
+    <ClInclude Include="Data Structures\BoxVolume.h">
+      <Filter>Header Files\Data Structures</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
