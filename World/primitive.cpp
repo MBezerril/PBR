@@ -7,7 +7,11 @@ Primitive::Primitive(void) {
 	obj_mat = new Material(glm::vec3(0, 0, 0));
 }
 
+<<<<<<< HEAD
 Primitive::~Primitive(void){
+=======
+Primitive::~Primitive(void) {
+>>>>>>> c68eefe950ec4d3664fc741270b86dd9f5539a98
 }
 
 glm::vec3 Primitive::getBRDF(IntersectionRecord & intersection_record) const {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "boxVolume.h"
 
 BoxVolume BoxVolume::operator+(BoxVolume const& obj) {
@@ -25,16 +26,29 @@ BoxVolume::BoxVolume(const glm::vec3& minu, const glm::vec3& maxi) {
 	boundings[1] = maxi;
 	center_ = (maxi + minu);
 	center_ /= 2;
+=======
+#include "BoxVolume.h"
+
+BoxVolume::BoxVolume(const glm::vec3& maxi, const glm::vec3& minu) {
+	boundings[0] = maxi;
+	boundings[1] = minu;
+>>>>>>> c68eefe950ec4d3664fc741270b86dd9f5539a98
 }
 
 BoxVolume::~BoxVolume() {}
 
+<<<<<<< HEAD
 bool BoxVolume::intersect(const Ray & r) const {
+=======
+
+bool BoxVolume::intersect(const Ray& r) const {
+>>>>>>> c68eefe950ec4d3664fc741270b86dd9f5539a98
 	float tmin, tmax, tymin, tymax, tzmin, tzmax;
 
 	/** The sinalDirection is a precomputed value on constructor
 	*  When the box position is greater than ray origin, so we need to swap the tmax and tmin
 	*  The sinal direction help to calc directly or inverted, without need to check and swap after calculation
+<<<<<<< HEAD
 	*  This is an optimization from:
 	*  https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-box-intersection
 	*/
@@ -46,6 +60,14 @@ bool BoxVolume::intersect(const Ray & r) const {
 	tymin *= r.invdirection_.y;
 	tymax = (boundings[1 - r.signalDirection_[1]].y - r.origin_.y);
 	tymax *= r.invdirection_.y;
+=======
+	*  This is an optimization
+	*/
+	tmin = (boundings[r.signalDirection_[0]].x - r.origin_.x) * r.invdirection_.x;
+	tmax = (boundings[1 - r.signalDirection_[0]].x - r.origin_.x) * r.invdirection_.x;
+	tymin = (boundings[r.signalDirection_[1]].y - r.origin_.y) * r.invdirection_.y;
+	tymax = (boundings[1 - r.signalDirection_[1]].y - r.origin_.y) * r.invdirection_.y;
+>>>>>>> c68eefe950ec4d3664fc741270b86dd9f5539a98
 
 	//If the tmin is greater than max or the tmax is less than min, the ray doesn't instersetc the box
 	if((tmin > tymax) || (tymin > tmax))
@@ -55,10 +77,15 @@ bool BoxVolume::intersect(const Ray & r) const {
 	if(tymin > tmin) tmin = tymin;
 	if(tymax < tmax) tmax = tymax;
 
+<<<<<<< HEAD
 	tzmin = (boundings[r.signalDirection_[2]].z - r.origin_.z);
 	tzmin *= r.invdirection_.z;
 	tzmax = (boundings[1 - r.signalDirection_[2]].z - r.origin_.z);
 	tzmax *= r.invdirection_.z;
+=======
+	tzmin = (boundings[r.signalDirection_[2]].z - r.origin_.z) * r.invdirection_.z;
+	tzmax = (boundings[1 - r.signalDirection_[2]].z - r.origin_.z) * r.invdirection_.z;
+>>>>>>> c68eefe950ec4d3664fc741270b86dd9f5539a98
 
 	//If the tmin is greater than max or the tmax is less than min, the ray doesn't instersetc the box
 	if((tmin > tzmax) || (tzmin > tmax)) return false;

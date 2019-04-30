@@ -30,12 +30,17 @@ int main(void) {
 		PathTracer rt(camera,
 			scene,
 			background_color,
-			rendering_buffer, 200, 5);
+			rendering_buffer, 1000, 5);
+
+		clock_t begin = clock();//Get the initial time
 
 		clock_t begin = clock();//Get the initial time
 
 		rt.integrate(); // Renders the final image.
+<<<<<<< HEAD
 		//rt.integrateAcelerated(); // Renders the final image.
+=======
+>>>>>>> c68eefe950ec4d3664fc741270b86dd9f5539a98
 		
 		clock_t end = clock();//get the end time
 		double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC; //Calc the seconds elapsed to complete the render

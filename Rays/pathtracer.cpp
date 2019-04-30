@@ -17,9 +17,15 @@ PathTracer::PathTracer(Camera& camera,
 void PathTracer::integrate(void) {
 	// Image space origin (i.e. x = 0 and y = 0) at the top left corner.
 	// Loops over image rows
+<<<<<<< HEAD
 #pragma omp parallel for schedule(dynamic,1)
 	for(int y = 0; y < buffer_.v_resolution_; y++) {
 		IntersectionRecord intersection_record;
+=======
+	#pragma omp parallel for schedule(dynamic,1)
+	for (int y = 0; y < buffer_.v_resolution_; y++) {
+	IntersectionRecord intersection_record;
+>>>>>>> c68eefe950ec4d3664fc741270b86dd9f5539a98
 		auto seed = std::chrono::system_clock::now().time_since_epoch().count();
 		std::uniform_real_distribution<float> distribuition(0.0f, 1.0f);
 		std::mt19937_64 generator(seed);
@@ -39,9 +45,15 @@ void PathTracer::integrate(void) {
 
 				auto v = distribuition(generator);
 				auto h = distribuition(generator);
+<<<<<<< HEAD
 				while(v == 1.0f)
 					v = distribuition(generator);
 				while(h == 1.0f)
+=======
+				while (v == 1.0f)
+					v = distribuition(generator);
+				while (h == 1.0f)
+>>>>>>> c68eefe950ec4d3664fc741270b86dd9f5539a98
 					h = distribuition(generator);
 
 				Ray ray{ camera_.getWorldSpaceRay(glm::vec2{ x + v, y + h }) };
@@ -50,6 +62,7 @@ void PathTracer::integrate(void) {
 					//buffer_.buffer_data_[x][y] = glm::vec3{ 1.0f, 0.0f, 0.0f };
 					buffer_.buffer_data_[x][y] += L(ray, 0);
 				}/*
+<<<<<<< HEAD
 				else {
 					break;
 				}*/
@@ -103,6 +116,8 @@ void PathTracer::integrateAcelerated(void) {
 					//buffer_.buffer_data_[x][y] = glm::vec3{ 1.0f, 0.0f, 0.0f };
 					buffer_.buffer_data_[x][y] += LBVH(ray, 0);
 				}/*
+=======
+>>>>>>> c68eefe950ec4d3664fc741270b86dd9f5539a98
 				else {
 					break;
 				}*/

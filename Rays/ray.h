@@ -16,7 +16,11 @@ public:
 
     glm::vec3 direction_{ 0.0f, 0.0f, -1.0f };
     glm::vec3 invdirection_{ 0.0f, 0.0f, 0.0f };
+<<<<<<< HEAD
     glm::ivec3 signalDirection_{ 0, 0, 0 };
+=======
+    glm::bvec3 signalDirection_{ false, false, false };
+>>>>>>> c68eefe950ec4d3664fc741270b86dd9f5539a98
 };
 
 #endif /* RAY_H_ */

@@ -48,6 +48,7 @@ private:
 
 	int max_depth_;
 
+<<<<<<< HEAD
 	glm::vec3 L(const Ray& ray, int depth);
 
 	glm::vec3 LBVH( const Ray& ray, int depth);
@@ -55,6 +56,9 @@ private:
 	void constructBVH(std::shared_ptr<bvhNode> &node, int start, int end, std::vector<int> objects, int depth);
 
 	bool bvhIntersect(std::shared_ptr<bvhNode> node, const Ray& ray, IntersectionRecord& intersection_record) const;
+=======
+	glm::vec3 L(const Ray &ray, int depth);
+>>>>>>> c68eefe950ec4d3664fc741270b86dd9f5539a98
 };
 
 #endif /* PATHTRACER_H_ */
