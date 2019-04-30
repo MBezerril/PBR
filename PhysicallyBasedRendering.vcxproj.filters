@@ -87,11 +87,7 @@
     <ClCompile Include="World\lightMaterial.cpp">
       <Filter>Source Files\World</Filter>
     </ClCompile>
-<<<<<<< HEAD
     <ClCompile Include="Data Structures\boxVolume.cpp">
-=======
-    <ClCompile Include="Data Structures\BoxVolume.cpp">
->>>>>>> c68eefe950ec4d3664fc741270b86dd9f5539a98
       <Filter>Source Files\Data Structures</Filter>
     </ClCompile>
   </ItemGroup>
@@ -147,14 +143,10 @@
     <ClInclude Include="World\lightMaterial.h">
       <Filter>Header Files\World</Filter>
     </ClInclude>
-<<<<<<< HEAD
     <ClInclude Include="Data Structures\boxVolume.h">
       <Filter>Header Files\Data Structures</Filter>
     </ClInclude>
     <ClInclude Include="Data Structures\bvhNode.h">
-=======
-    <ClInclude Include="Data Structures\BoxVolume.h">
->>>>>>> c68eefe950ec4d3664fc741270b86dd9f5539a98
       <Filter>Header Files\Data Structures</Filter>
     </ClInclude>
   </ItemGroup>

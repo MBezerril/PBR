@@ -9,10 +9,6 @@ Ray::Ray( const glm::vec3 &origin,
         direction_{ direction }
 {
 	invdirection_ = 1.0f / direction_;
-<<<<<<< HEAD
-	signalDirection_ = glm::ivec3{ (invdirection_.x < 0), (invdirection_.y < 0), (invdirection_.z < 0) };
-=======
 	signalDirection_ = glm::bvec3{ (invdirection_.x < 0), (invdirection_.y < 0), (invdirection_.z < 0) };
->>>>>>> c68eefe950ec4d3664fc741270b86dd9f5539a98
 }
 

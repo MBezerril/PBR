@@ -1,9 +1,7 @@
-<<<<<<< HEAD
-﻿  main.cpp
-=======
-﻿  BoxVolume.cpp
-  main.cpp
+﻿  ray.cpp
+  primitive.cpp
+  scene.cpp
+  sphere.cpp
   triangle.cpp
   Gerando Código...
->>>>>>> c68eefe950ec4d3664fc741270b86dd9f5539a98
   PhysicallyBasedRendering.vcxproj -> E:\UFPB\2018-2\Tópicos Especiais em Computação\PBR\x64\Debug\PhysicallyBasedRendering.exe

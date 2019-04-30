@@ -120,11 +120,7 @@
     <ClCompile Include="Cameras\camera.cpp" />
     <ClCompile Include="Cameras\orthographic_camera.cpp" />
     <ClCompile Include="Cameras\perspective_camera.cpp" />
-<<<<<<< HEAD
     <ClCompile Include="Data Structures\boxVolume.cpp" />
-=======
-    <ClCompile Include="Data Structures\BoxVolume.cpp" />
->>>>>>> c68eefe950ec4d3664fc741270b86dd9f5539a98
     <ClCompile Include="Data Structures\onb.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Rays\pathtracer.cpp" />
@@ -143,12 +139,8 @@
     <ClInclude Include="Cameras\camera.h" />
     <ClInclude Include="Cameras\orthographic_camera.h" />
     <ClInclude Include="Cameras\perspective_camera.h" />
-<<<<<<< HEAD
     <ClInclude Include="Data Structures\boxVolume.h" />
     <ClInclude Include="Data Structures\bvhNode.h" />
-=======
-    <ClInclude Include="Data Structures\BoxVolume.h" />
->>>>>>> c68eefe950ec4d3664fc741270b86dd9f5539a98
     <ClInclude Include="Data Structures\onb.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Rays\intersection_record.h" />
