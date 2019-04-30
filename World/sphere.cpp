@@ -1,14 +1,15 @@
 #include "sphere.h"
 
-Sphere::Sphere(void) {
-}
+Sphere::Sphere(void) {}
 
-Sphere::Sphere(const glm::vec3 &center, float radius, Material *mat) : center_{ center }, radius_{ radius }{
+Sphere::Sphere(const glm::vec3& center, float radius, Material* mat) : center_{ center }, radius_{ radius }{
 	obj_mat = mat;
+	glm::vec3 offset{ radius, radius, radius };
+	boundingBox = BoxVolume(glm::vec3{ center }-offset, glm::vec3{ center }+offset);
 }
 
-bool Sphere::intersect(const Ray &ray,
-	IntersectionRecord &intersection_record) const {
+bool Sphere::intersect(const Ray & ray,
+	IntersectionRecord & intersection_record) const {
 	/* Ray-sphere intersection test adapted from the very efficient algorithm presented in the article:
 	 *
 	 *     "Intersection of a Ray with a Sphere".
@@ -25,7 +26,7 @@ bool Sphere::intersect(const Ray &ray,
 	float v = glm::dot(eo, ray.direction_);
 	float disc = (radius_ * radius_) - (glm::dot(eo, eo) - (v * v));
 
-	if (disc < 0.0f)
+	if(disc < 0.0f)
 		return false;                           // no intersection
 	else {
 		float d = sqrt(disc);
@@ -37,7 +38,7 @@ bool Sphere::intersect(const Ray &ray,
 	intersection_record.t_ = (t1 > 0.00001f) ? t1 : t2;
 	intersection_record.position_ = ray.origin_ + intersection_record.t_ * ray.direction_;
 	intersection_record.normal_ = glm::normalize(intersection_record.position_ - center_);
-	intersection_record.color_ = getColor(intersection_record);
+	intersection_record.color_ = getBRDF(intersection_record);
 	intersection_record.emitance_ = getEmitance(intersection_record);
 
 

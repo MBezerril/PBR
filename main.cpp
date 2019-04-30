@@ -11,12 +11,9 @@ int main(void) {
 
 	for (int actual = 0; actual < imagesQuantity; actual++) { //Loop used to make all images
 		std::string nome = "Outputs/output_image" + std::to_string(actual) + ".ppm";
-		glm::vec3 camera_position{ 0.0f, 0.0f,  5.0f };
+		glm::vec3 camera_position{ 0.0f, 0.0f,  4.0f };
 
-		PerspectiveCamera camera{ -1.25f,
-									1.25f,
-								   -1.25f,
-									1.25f,
+		PerspectiveCamera camera{ -1.25f, 1.25f, -1.25f, 1.25f,
 									glm::ivec2{ x_resolution, y_resolution },
 									camera_position,     // position
 									glm::vec3{ 0.0f, 1.0f,  0.0f },     // up
@@ -35,10 +32,21 @@ int main(void) {
 			background_color,
 			rendering_buffer, 200, 5);
 
+		clock_t begin = clock();//Get the initial time
+
 		rt.integrate(); // Renders the final image.
+		//rt.integrateAcelerated(); // Renders the final image.
+		
+		clock_t end = clock();//get the end time
+		double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC; //Calc the seconds elapsed to complete the render
 
 		// Save the rendered image to a .ppm file.
 		rendering_buffer.save(nome);
+	#ifdef windows
+		std::cout << "Tempo: " << elapsed_secs << std::endl;
+		system("pause");
+	#endif // windows
+
 	}
 
 	return EXIT_SUCCESS;

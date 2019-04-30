@@ -1,3 +1,11 @@
+# Changes 3
+## The path tracer
+Now we implemented the path trace algorithm. To work properly we need to create a material class, and from the material class we created a light and diffuse material.
+The sampling used in each pixel is the jittered sampling. 
+![Example2](https://github.com/MBezerril/PBR/blob/master/Outputs/pathtracercomparison.jpg)<br/>
+It's easy to se how natural the light becomes with the increasing of the number of samples, this is called Monte Carlo method, where we can use lot's of sample to make a more realistic aproximation of the real value. ![Wikipedia - Monte Carlo Method](https://en.wikipedia.org/wiki/Monte_Carlo_method)
+Another improvement is the use of the Mersenne Twister engine ,a standart c++11 library, to make the best pseudo-randomic numbers distribution to avoid some kind of bias in the sampling directions. 
+
 # Changes 2
 
 ## Inserted the pinhole camera and the assimp:
@@ -12,15 +20,15 @@ Official site: http://www.assimp.org/index.php
 
 GitHub repository: https://github.com/assimp/assimp
 
+![Example2](https://github.com/MBezerril/PBR/blob/master/Outputs/Change2-MonkeyBlender-fixed.png)
+*Blender monkey imported using assimp. The gray scale is set using the object distance to the camera*
 # Changes 1
 Created and tested the triangle algorithm and was used the *Fast, Minimum Storage Ray/Triangle Intersection (Möller, T.; Trumbore, B.)*
 
 The first try didn't go very well, but was a point position mistake.
 
 *The speed and memory tests wasn't make yet, we still need the second triangle intersection algotihm to make the comparisions*
-
-Output image rendered can be found in the *Output* folder with the "*Tringle.jpg*
-
+![Example](https://github.com/MBezerril/PBR/blob/master/Outputs/Change1-Triangle.jpg)
 
 # RT-Template
 
