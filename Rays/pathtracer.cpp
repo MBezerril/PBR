@@ -17,9 +17,9 @@ PathTracer::PathTracer(Camera& camera,
 void PathTracer::integrate(void) {
 	// Image space origin (i.e. x = 0 and y = 0) at the top left corner.
 	// Loops over image rows
-	#pragma omp parallel for schedule(dynamic,1)
-	for (int y = 0; y < buffer_.v_resolution_; y++) {
-	IntersectionRecord intersection_record;
+#pragma omp parallel for schedule(dynamic,1)
+	for(int y = 0; y < buffer_.v_resolution_; y++) {
+		IntersectionRecord intersection_record;
 		auto seed = std::chrono::system_clock::now().time_since_epoch().count();
 		std::uniform_real_distribution<float> distribuition(0.0f, 1.0f);
 		std::mt19937_64 generator(seed);
@@ -39,9 +39,9 @@ void PathTracer::integrate(void) {
 
 				auto v = distribuition(generator);
 				auto h = distribuition(generator);
-				while (v == 1.0f)
+				while(v == 1.0f)
 					v = distribuition(generator);
-				while (h == 1.0f)
+				while(h == 1.0f)
 					h = distribuition(generator);
 
 				Ray ray{ camera_.getWorldSpaceRay(glm::vec2{ x + v, y + h }) };
@@ -67,7 +67,7 @@ void PathTracer::integrateAcelerated(void) {
 		root_ = std::make_shared<bvhNode>();
 		constructBVH(root_, 0, scene_.primitives_.size() - 1, objstIndexes, 0);
 	}
-	//#pragma omp parallel for schedule(dynamic,1)
+//#pragma omp parallel for schedule(dynamic,1)
 	for(int y = 0; y < buffer_.v_resolution_; y++) {
 		IntersectionRecord intersection_record;
 		auto seed = std::chrono::system_clock::now().time_since_epoch().count();

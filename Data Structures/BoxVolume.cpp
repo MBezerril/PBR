@@ -30,6 +30,8 @@ BoxVolume::BoxVolume(const glm::vec3& minu, const glm::vec3& maxi) {
 BoxVolume::~BoxVolume() {}
 
 bool BoxVolume::intersect(const Ray & r) const {
+	//If ray's origin it's inside of the box, we have intersection in any direction
+	if((boundings[0].x < r.origin_.x && boundings[1].x > r.origin_.x)&&(boundings[0].y < r.origin_.y && boundings[1].y > r.origin_.y)&&(boundings[0].z < r.origin_.z && boundings[1].z > r.origin_.z))return true;
 	float tmin, tmax, tymin, tymax, tzmin, tzmax;
 
 	/** The sinalDirection is a precomputed value on constructor
