@@ -35,7 +35,7 @@ void Scene::load(void) {
 	monkey
 	monkey2
 	*/
-	const aiScene *scene = importer.ReadFile("objts/quarto.obj",
+	const aiScene *scene = importer.ReadFile("objts/monkey.obj",
 		aiProcess_CalcTangentSpace |
 		aiProcess_Triangulate |
 		aiProcess_RemoveComponent |
@@ -63,17 +63,17 @@ void Scene::load(void) {
 			b = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
 			g = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
 
-			//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle(p1, p2, p3, new DiffuseMaterial(glm::vec3(r, g, b)))));
+			primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle(p1, p2, p3, new DiffuseMaterial(glm::vec3(r, g, b)))));
 		}
 	}
 	//Luz da cena
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, -2.0f,  0.0f }, 0.8f , new LightMaterial(glm::vec3(0, 0, 0) , 15.0f) }));
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, 0.0f,  0.0f }, 1.0f ,new DiffuseMaterial(glm::vec3(1, 1, 0)) }));
+	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, -4.0f,  -2.0f }, 0.8f , new LightMaterial(glm::vec3(0.0f, 0.0f, 0.0f) , 15.0f) }));
+
+	//------------------------------------------------------------------------------------------------------------
 	//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, -2.0f,  0.0f }, 0.8f , new LightMaterial(glm::vec3(0, 0, 0) , 15.0f) }));
-	//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  2.0f, 0.0f,  0.0f }, 0.8f ,new DiffuseMaterial(glm::vec3(1, 1, 0)) }));
+	//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, 0.0f,  0.0f }, 1.0f ,new DiffuseMaterial(glm::vec3(1, 1, 0)) }));
+	//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, 0.0f,  0.0f }, 0.8f ,new DiffuseMaterial(glm::vec3(1.0f, 0.6f, 0.0f)) }));
 	//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle(glm::vec3{ 3.0f, 1.0f, 3.0f }, glm::vec3{ -3.0f, 1.0f, 3.0f }, glm::vec3{ 3.0f,  1.0f, -3.0f }, new DiffuseMaterial(glm::vec3(1, 0, 0)))));
 	//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle(glm::vec3{ -3.0f, 1.0f, 3.0f }, glm::vec3{ -3.0f, 1.0f, -3.0f }, glm::vec3{ 3.0f,  1.0f, -3.0f }, new DiffuseMaterial(glm::vec3(1, 0, 0)))));
-
-
 
 }

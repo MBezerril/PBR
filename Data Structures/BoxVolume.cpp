@@ -23,6 +23,19 @@ BoxVolume BoxVolume::operator+(BoxVolume const& obj) {
 BoxVolume::BoxVolume(const glm::vec3& minu, const glm::vec3& maxi) {
 	boundings[0] = minu;
 	boundings[1] = maxi;
+
+	if(minu.x == maxi.x) {
+		boundings[0].x -= 0.001f;
+		boundings[1].x += 0.001f;
+	}
+	if(minu.y == maxi.y) {
+		boundings[0].y -= 0.001f;
+		boundings[1].y += 0.001f;
+	}
+	if(minu.z == maxi.z) {
+		boundings[0].z -= 0.001f;
+		boundings[1].z += 0.001f;
+	}
 	center_ = (maxi + minu);
 	center_ /= 2;
 }
@@ -31,7 +44,7 @@ BoxVolume::~BoxVolume() {}
 
 bool BoxVolume::intersect(const Ray & r) const {
 	//If ray's origin it's inside of the box, we have intersection in any direction
-	if((boundings[0].x < r.origin_.x && boundings[1].x > r.origin_.x)&&(boundings[0].y < r.origin_.y && boundings[1].y > r.origin_.y)&&(boundings[0].z < r.origin_.z && boundings[1].z > r.origin_.z))return true;
+	if((boundings[0].x < r.origin_.x && boundings[1].x > r.origin_.x) && (boundings[0].y < r.origin_.y && boundings[1].y > r.origin_.y) && (boundings[0].z < r.origin_.z && boundings[1].z > r.origin_.z))return true;
 	float tmin, tmax, tymin, tymax, tzmin, tzmax;
 
 	/** The sinalDirection is a precomputed value on constructor

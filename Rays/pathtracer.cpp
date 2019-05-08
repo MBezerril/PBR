@@ -67,7 +67,7 @@ void PathTracer::integrateAcelerated(void) {
 		root_ = std::make_shared<bvhNode>();
 		constructBVH(root_, 0, scene_.primitives_.size() - 1, objstIndexes, 0);
 	}
-//#pragma omp parallel for schedule(dynamic,1)
+#pragma omp parallel for schedule(dynamic,1)
 	for(int y = 0; y < buffer_.v_resolution_; y++) {
 		IntersectionRecord intersection_record;
 		auto seed = std::chrono::system_clock::now().time_since_epoch().count();
@@ -95,7 +95,7 @@ void PathTracer::integrateAcelerated(void) {
 					h = distribuition(generator);
 
 				Ray ray{ camera_.getWorldSpaceRay(glm::vec2{ x + v, y + h }) };
-
+				//if(y == 300 && x == 50 && w == 0) system("pause");
 				if(bvhIntersect(root_, ray, intersection_record)) {
 					//buffer_.buffer_data_[x][y] = glm::vec3{ 1.0f, 0.0f, 0.0f };
 					buffer_.buffer_data_[x][y] += LBVH(ray, 0);
@@ -160,7 +160,7 @@ glm::vec3 PathTracer::LBVH(const Ray & ray, int depth) {
 }
 
 void PathTracer::constructBVH(std::shared_ptr<bvhNode> & node, int start, int end, std::vector<int> objects, int depth) {
-	if(end - start > 1) {
+	if(end - start > 0) {
 		//Select the axis to be used on sorting function 
 		auto sortAxis = [&](int x1, int x2) {return scene_.primitives_[x1]->getCenter()[depth % 3] < scene_.primitives_[x2]->getCenter()[depth % 3]; };
 		//The vector objects it's the vector that contains the index of the objects to be ordered or accessed
@@ -169,27 +169,19 @@ void PathTracer::constructBVH(std::shared_ptr<bvhNode> & node, int start, int en
 		//int xmin = xmax, ymin = ymax, zmin = zmax;
 		////get the maximum and minimum value of this node and create a new bouding box
 		node->boudingBox = scene_.primitives_[start]->boundingBox;
-		for(int i = start; i < end; i++) {
+		for(int i = start; i <= end; i++) {
 			node->boudingBox = node->boudingBox + scene_.primitives_[i]->boundingBox;
-			//	if(scene_.primitives_[i]->getCenter().x > xmax) xmax = scene_.primitives_[i]->getCenter().x;
-			//	if(scene_.primitives_[i]->getCenter().y > ymax) ymax = scene_.primitives_[i]->getCenter().y;
-			//	if(scene_.primitives_[i]->getCenter().z > zmax) zmax = scene_.primitives_[i]->getCenter().z;
-
-			//	if(scene_.primitives_[i]->getCenter().x < xmin) xmin = scene_.primitives_[i]->getCenter().x;
-			//	if(scene_.primitives_[i]->getCenter().y < ymin) ymin = scene_.primitives_[i]->getCenter().y;
-			//	if(scene_.primitives_[i]->getCenter().z < zmin) zmin = scene_.primitives_[i]->getCenter().z;
 		}
 		node->leftChild = std::make_shared<bvhNode>();
 		node->rightChild = std::make_shared<bvhNode>();
-		constructBVH(node->leftChild, start, static_cast<int>(start + end / 2.0f), objects, depth + 1);
-		constructBVH(node->rightChild, static_cast<int>(start + end / 2.0f + 0.5f), end, objects, depth + 1);
+		constructBVH(node->leftChild, start, static_cast<int>((start + end) / 2.0f), objects, depth + 1);
+		constructBVH(node->rightChild, static_cast<int>(((start + end) / 2.0f) + 0.5f), end, objects, depth + 1);
 	}
 	else {
 		//If it's the last level, set the leaves and return;
-		node->childs[0] = start;
-		node->childs[1] = end;
+		node->child = start;
 		node->isLeaf = true;
-		node->boudingBox = scene_.primitives_[start]->boundingBox + scene_.primitives_[end]->boundingBox;
+		node->boudingBox = scene_.primitives_[start]->boundingBox;
 		return;
 	}
 
@@ -200,32 +192,55 @@ void PathTracer::constructBVH(std::shared_ptr<bvhNode> & node, int start, int en
 bool PathTracer::bvhIntersect(std::shared_ptr<bvhNode> node, const Ray & ray, IntersectionRecord & intersection_record) const {
 	if(!node->boudingBox.intersect(ray)) return false;
 	//creating the intersection record to each child, so we can compare wich one (if both colides) it's closer
-	IntersectionRecord intersection_record_left, intersection_record_right;
-	intersection_record_left.t_ = std::numeric_limits< double >::max();
-	intersection_record_right.t_ = std::numeric_limits< double >::max();
-	bool leftIntersection, rightIntersection;
+	IntersectionRecord tmp_intersection;
+	//intersection_record_left.t_ = std::numeric_limits< double >::max();
+	//intersection_record_right.t_ = std::numeric_limits< double >::max();
+	bool tmp_intersection_result;
 	if(node->isLeaf) {
-		leftIntersection = scene_.primitives_[node->childs[0]]->intersect(ray, intersection_record_left);
-		rightIntersection = scene_.primitives_[node->childs[1]]->intersect(ray, intersection_record_right);
+		if(scene_.primitives_[node->child]->intersect(ray, tmp_intersection)) {
+			if(tmp_intersection.t_ > 0.0) {
+				intersection_record = tmp_intersection;
+				return true;
+			}
+			else return false;
+		}
+		else {
+			return false;
+		}
 	}
 	else {
 		//Call the intersection to the childs nodes
+		IntersectionRecord intersection_record_left, intersection_record_right;
+		bool rightIntersection, leftIntersection;
 		leftIntersection = bvhIntersect(node->leftChild, ray, intersection_record_left);
-		rightIntersection = bvhIntersect(node->leftChild, ray, intersection_record_right);
+		rightIntersection = bvhIntersect(node->rightChild, ray, intersection_record_right);
+		//Return false if there wasn't intersection or both aren't greater than 0
+		if(!leftIntersection && !rightIntersection || (intersection_record_left.t_ < 0.0 && intersection_record_right.t_ < 0.0)) return false;
+		//both intersections
+		if(leftIntersection && rightIntersection) {
+			//both greater than 0
+			if(intersection_record_left.t_ > 0.0 && intersection_record_right.t_ > 0.0) {
+				intersection_record_left.t_ < intersection_record_right.t_ ? intersection_record = intersection_record_left : intersection_record = intersection_record_right;
+			}
+			//only one greater
+			else {
+				if(intersection_record_left.t_ < 0.0) intersection_record = intersection_record_right;
+				else intersection_record = intersection_record_left;
+			}
+			return true;
+		}
+		//One or the other collided
+		//Check also if the distance is positive, if not, return false
+		else if(leftIntersection && intersection_record_left.t_ > 0.0) {
+			intersection_record = intersection_record_left;
+			return true;
+		}
+		else if(rightIntersection && intersection_record_right.t_ > 0.0) {
+			intersection_record = intersection_record_right;
+			return true;
+		}
+		return false;
 	}
-	//if there is no colision on childs nodes
-	if(!leftIntersection && !rightIntersection) return false;
-	//both collided
-	if(leftIntersection && rightIntersection) {
-		//Get the closest intersection
-		intersection_record_left.t_ < intersection_record_right.t_ ? intersection_record = intersection_record_left : intersection_record = intersection_record_right;
-	}
-	//one or the other collided
-	else if(leftIntersection)
-		intersection_record = intersection_record_left;
-	else
-		intersection_record = intersection_record_right;
-	return true;
 }
 
 

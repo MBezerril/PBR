@@ -11,7 +11,7 @@ public:
 	};
 	~bvhNode() {};
 	bool isLeaf = false;
-	int childs[2] = { 0 , 0 };
+	int child = -1;
 	std::shared_ptr<bvhNode> leftChild, rightChild;
 	BoxVolume boudingBox{ glm::vec3{0,0,0}, glm::vec3{ 0,0,0 } };
 private:

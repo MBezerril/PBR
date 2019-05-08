@@ -19,10 +19,10 @@ Triangle::Triangle(glm::vec3 vert1, glm::vec3 vert2, glm::vec3 vert3, Material* 
 	//Getting the maximum XYZ to create the bouding box
 	xmax = vert1.x > vert2.x ? vert1.x : vert2.x;
 	ymax = vert1.y > vert2.y ? vert1.y : vert2.y;
-	zmax = vert1.z > vert2.y ? vert1.z : vert2.z;
-	xmax = vert3.x > xmin ? vert3.x : xmin;
-	ymax = vert3.y > ymin ? vert3.y : ymin;
-	zmax = vert3.z > zmin ? vert3.z : zmin;
+	zmax = vert1.z > vert2.z ? vert1.z : vert2.z;
+	xmax = vert3.x > xmax ? vert3.x : xmax;
+	ymax = vert3.y > ymax ? vert3.y : ymax;
+	zmax = vert3.z > zmax ? vert3.z : zmax;
 	boundingBox = BoxVolume(glm::vec3{ xmin, ymin, zmin }, glm::vec3{ xmax, ymax, zmax });
 }
 
@@ -57,7 +57,7 @@ bool Triangle::intersect(const Ray& ray, IntersectionRecord& intersection_record
 	t = glm::dot(edge2, qvec) * inv_det;
 	intersection_record.t_ = t;
 	intersection_record.position_ = ray.origin_ + intersection_record.t_ * ray.direction_;
-	intersection_record.normal_ = glm::normalize(glm::cross(edge1, edge2));
+	intersection_record.normal_ = glm::normalize(glm::cross(edge2, edge1));
 	/*if (glm::dot(intersection_record.normal_, ray.direction_) > 0) {
 		intersection_record.normal_ = glm::normalize(glm::cross(edge2, edge1));
 	}*/

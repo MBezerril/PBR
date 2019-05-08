@@ -1,0 +1,7 @@
+--------- 4 objetos-----------
+Sem acel  - 247
+BVH - 340 segundos
+
+--------- 969 objetos-----------
+Sem acel - 1728
+Com BVH  - 37

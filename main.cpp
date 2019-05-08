@@ -11,7 +11,7 @@ int main(void) {
 
 	for (int actual = 0; actual < imagesQuantity; actual++) { //Loop used to make all images
 		std::string nome = "Outputs/output_image" + std::to_string(actual) + ".ppm";
-		glm::vec3 camera_position{ 0.0f, 0.0f,  4.0f };
+		glm::vec3 camera_position{ 0.0f, 0.0f,  8.0f };
 
 		PerspectiveCamera camera{ -1.25f, 1.25f, -1.25f, 1.25f,
 									glm::ivec2{ x_resolution, y_resolution },
@@ -30,7 +30,7 @@ int main(void) {
 		PathTracer rt(camera,
 			scene,
 			background_color,
-			rendering_buffer, 10, 5);
+			rendering_buffer, 2000, 5);
 
 		clock_t begin = clock();//Get the initial time
 
@@ -39,11 +39,11 @@ int main(void) {
 		
 		clock_t end = clock();//get the end time
 		double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC; //Calc the seconds elapsed to complete the render
+		std::cout << "Tempo: " << elapsed_secs << std::endl;
 
 		// Save the rendered image to a .ppm file.
 		rendering_buffer.save(nome);
 	#ifdef windows
-		std::cout << "Tempo: " << elapsed_secs << std::endl;
 		system("pause");
 	#endif // windows
 
