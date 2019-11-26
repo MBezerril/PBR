@@ -35,7 +35,7 @@ void Scene::load(void) {
 	monkey
 	monkey2
 	*/
-	const aiScene *scene = importer.ReadFile("objts/monkey.obj",
+	const aiScene *scene = importer.ReadFile("objts/Room.obj",
 		aiProcess_CalcTangentSpace |
 		aiProcess_Triangulate |
 		aiProcess_RemoveComponent |
@@ -59,15 +59,18 @@ void Scene::load(void) {
 			glm::vec3 p2 = glm::vec3{ vert2.x, -vert2.y, vert2.z };
 			glm::vec3 p3 = glm::vec3{ vert3.x, -vert3.y, vert3.z };
 
-			r = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
-			b = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
-			g = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
+			//r = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
+			//b = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
+			//g = static_cast <float> (std::rand()) / static_cast <float> (RAND_MAX);
+			r = 1.0f;
+			b = 1.0f;
+			g = 1.0f;
 
 			primitives_.push_back(Primitive::PrimitiveUniquePtr(new Triangle(p1, p2, p3, new DiffuseMaterial(glm::vec3(r, g, b)))));
 		}
 	}
 	//Luz da cena
-	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, -4.0f,  -2.0f }, 0.8f , new LightMaterial(glm::vec3(0.0f, 0.0f, 0.0f) , 15.0f) }));
+	primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, -2.0f,  -2.0f }, 0.8f , new LightMaterial(glm::vec3(0.0f, 0.0f, 0.0f) , 15.0f) }));
 
 	//------------------------------------------------------------------------------------------------------------
 	//primitives_.push_back(Primitive::PrimitiveUniquePtr(new Sphere{ glm::vec3{  0.0f, -2.0f,  0.0f }, 0.8f , new LightMaterial(glm::vec3(0, 0, 0) , 15.0f) }));
