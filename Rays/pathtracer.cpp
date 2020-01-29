@@ -162,6 +162,7 @@ glm::vec3 PathTracer::LBVH(const Ray & ray, int depth) {
 void PathTracer::constructBVH(std::shared_ptr<bvhNode> & node, int start, int end, std::vector<int> objects, int depth) {
 	if(end - start > 0) {
 		//Select the axis to be used on sorting function 
+		//TODO revisar método de divisão, está criando multiplas caixas identicas -3 -3 -3 -> 3 3 3 
 		auto sortAxis = [&](int x1, int x2) {return scene_.primitives_[x1]->getCenter()[depth % 3] < scene_.primitives_[x2]->getCenter()[depth % 3]; };
 		//The vector objects it's the vector that contains the index of the objects to be ordered or accessed
 		std::sort(objects.begin() + start, objects.begin() + end, sortAxis);
@@ -174,6 +175,7 @@ void PathTracer::constructBVH(std::shared_ptr<bvhNode> & node, int start, int en
 		}
 		node->leftChild = std::make_shared<bvhNode>();
 		node->rightChild = std::make_shared<bvhNode>();
+		//TODO Revisar divisão e arredondamento
 		constructBVH(node->leftChild, start, static_cast<int>((start + end) / 2.0f), objects, depth + 1);
 		constructBVH(node->rightChild, static_cast<int>(((start + end) / 2.0f) + 0.5f), end, objects, depth + 1);
 	}
